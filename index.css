@@ -1,0 +1,133 @@
+﻿:root {
+    --theme: #5dba7f;
+    --darker-theme: #57ad76;
+    --light-theme: #f2f5f4;
+    --accent: #3D7871;
+    --off-black: #4a4a4a;
+    /*--grey: #dee3e1;*/
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 18px;
+    font-family: sans-serif;
+    color: var(--off-black);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu > li {
+    display: inline-block;
+}
+
+.menu-item, input[type=submit] {
+    margin: 10px;
+    padding: 5px;
+}
+
+.button, input[type=submit] {
+    background-color: var(--theme);
+    color: white;
+    border-radius: 8%;
+}
+
+.button:hover {
+    background-color: var(--darker-theme);
+}
+
+input {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 3px;
+}
+
+input[type=text] {
+    border: solid 1px #cccccc;
+    border-radius: 3px;
+}
+
+input[type=submit] {
+    border: none;
+    border-radius: 5%;
+    margin: 0px;
+    margin-top: 15px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-right: 5px;
+    border-bottom: solid 2px #dee3e1;
+}
+
+.link {
+    color: var(--theme);
+}
+
+.link:hover, .change-option:hover {
+    text-decoration: underline; /*maybe...*/
+    color: var(--darker-theme);
+}
+
+.form-container {
+    border: solid 2px var(--accent);
+    border-radius: 2%;
+    padding: 20px;
+    margin-right: 20%;
+    margin-left: 20%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: var(--light-theme);
+    font-size: 15px;
+    color: black;
+}
+
+.change-option {
+    margin-top: 10px;
+    color: #9e9e9e;
+    text-decoration: underline;
+    font-size: 12px;
+    text-align: center;
+}
+
+#expense-logo {
+    color: var(--accent);
+    font-size: 25px;
+    font-weight: 700;
+}
+
+@media screen and (min-width: 550px) {
+    input[type=submit] {
+        min-width: 80px;
+        max-width: 40%;
+    }
+
+    .name {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .form-container {
+        margin-right: 35%;
+        margin-left: 35%;
+        margin-top: 10%;
+    }
+
+    #first-name {
+        margin-right: 10px;
+    }
+
+    #last-name {
+        margin-left: 10px;
+    }
+}
