@@ -80,7 +80,8 @@ input[type=submit] {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    padding-right: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
     border-bottom: solid 2px #dee3e1;
 }
 
@@ -119,9 +120,17 @@ input[type=submit] {
 }
 
 #expense-logo {
-    color: var(--accent);
-    font-size: 25px;
+    color: black;
+    font-size: 30px;
     font-weight: 700;
+    text-decoration: none;
+}
+
+#logo {
+  height: 18px;
+  width: 15px;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 @media screen and (min-width: 550px) {

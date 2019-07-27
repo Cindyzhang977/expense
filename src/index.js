@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import logo from "./imgs/logo.png";
+console.log(logo);
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -14,10 +16,12 @@ class HomePage extends React.Component {
   }
 
   showLoginBox() {
+    console.log("show login");
     this.setState({isLoginOpen: true, isSignupOpen: false});
   }
 
   showSignupBox() {
+    console.log("show signup");
     this.setState({isSignupOpen: true, isLoginOpen: false});
   }
 
@@ -39,7 +43,7 @@ class HomePage extends React.Component {
 function Navbar(props) {
   return (
     <div className="navbar">
-        <div className="menu-item"><a href="index.html" id="expense-logo">Expense</a></div>
+        <div className="menu-item"><a href="index.html" id="expense-logo">expen<img id="logo" src={logo} alt="expense logo"/>e</a></div>
         <ul className="menu">
             <li className="menu-item link"><button onClick={props.clickLogin()}>Log In</button></li>
             <li className="menu-item button"><button onClick={props.clickSignup()}>Sign Up</button></li>
