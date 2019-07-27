@@ -1,0 +1,6 @@
+﻿@import "index.css";
+
+.menu > li {
+    display: block;
+    padding: 10px;
+}
