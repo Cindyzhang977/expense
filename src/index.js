@@ -2,59 +2,63 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-class Form extends React.Component {
+class HomePage extends React.Component {
   constructor(props) {
     super(props);
+    this.showSignupBox = this.showSignupBox.bind(this);
+    this.showLoginBox = this.showLoginBox.bind(this);
     this.state = {
       isLoginOpen: false,
-      isSignUpOpen: true
+      isSignupOpen: true
     };
   }
 
   showLoginBox() {
-    this.setState({isLoginOpen: true, isSignUpOpen: false});
+    this.setState({isLoginOpen: true, isSignupOpen: false});
   }
 
-  showSignUpBox() {
-    this.setState({isSignUpOpen: true, isLoginOpen: false});
+  showSignupBox() {
+    this.setState({isSignupOpen: true, isLoginOpen: false});
   }
 
   render() {
     return (
-      this.state.isSignUpOpen? <Signup /> : <Login />
+      <div>
+        <Navbar
+          clickLogin={() => this.showLoginBox}
+          clickSignup={() => this.showSignupBox}
+        />
+        {this.state.isSignupOpen?
+          <Signup onClick={() => this.showLoginBox}/> :
+          <Login onClick={() => this.showSignupBox}/>}
+      </div>
     )
   };
 }
 
-class Navbar extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div class="navbar">
-          <div class="menu-item"><a href="index.html" id="expense-logo">Expense</a></div>
-          <ul class="menu">
-              <li class="menu-item link"><a href="login.html">Log In</a></li>
-              <li class="menu-item button"><a href="#">Sign Up</a></li>
-          </ul>
-      </div>
-    );
-  }
+function Navbar(props) {
+  return (
+    <div className="navbar">
+        <div className="menu-item"><a href="index.html" id="expense-logo">Expense</a></div>
+        <ul className="menu">
+            <li className="menu-item link"><button onClick={props.clickLogin()}>Log In</button></li>
+            <li className="menu-item button"><button onClick={props.clickSignup()}>Sign Up</button></li>
+        </ul>
+    </div>
+  );
 }
 
 class Signup extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   render() {
     return (
-      <div class="form-container">
-          <div class="heading"><h>Sign Up</h></div>
+      <div className="form-container">
+          <div className="heading"><h1>Sign Up</h1></div>
           <form action="[specify form handler, what to do with form once submitted]">
-              <div class="name">
+              <div className="name">
                   <div id="first-name">
                       First Name <br />
                       <input type="text" name="firstname" /><br />
@@ -72,8 +76,8 @@ class Signup extends React.Component {
               <input type="text" name="password" /><br />
               Confirm Password <br />
               <input type="text" name="password" /><br />
-              <div align="right"><input type="submit" value="Sign Up" class="button" /></div>
-              <p class="change-option"><a href="login.html">Already have an account? Log in here!</a></p>
+              <div align="right"><input type="submit" value="Sign Up" className="button" /></div>
+              <p className="change-option"><button onClick={this.props.onClick()}>Already have an account? Log in here!</button></p>
           </form>
       </div>
     );
@@ -81,21 +85,21 @@ class Signup extends React.Component {
 }
 
 class Login extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   render() {
     return (
-      <div class="form-container">
-          <div class="heading"><h>Log In</h></div>
+      <div className="form-container">
+          <div className="heading"><h1>Log In</h1></div>
           <form action="[specify form handler, what to do with form once submitted]">
               Username <br />
               <input type="text" name="username" /><br />
               Password <br />
               <input type="text" name="password" /><br />
-              <div align="right"><input type="submit" value="Log In" class="button" /></div>
-              <p class="change-option"><a href="index.html">Don't have an account? Sign up here!</a></p>
+              <div align="right"><input type="submit" value="Log In" className="button" /></div>
+              <p className="change-option"><button onClick={this.props.onClick()}>Don't have an account? Sign up here!</button></p>
           </form>
       </div>
     );
@@ -103,9 +107,6 @@ class Login extends React.Component {
 }
 
 ReactDOM.render(
-  <div>
-    <Navbar />
-    <Form />
-  </div>,
+  <HomePage />,
   document.getElementById('root')
 );
