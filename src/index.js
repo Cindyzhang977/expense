@@ -66,26 +66,37 @@ class Signup extends React.Component {
     const form = event.target;
     const data = new FormData(form);
 
+    //get input values from form
     for (let name of data.keys()) {
-      console.log(data.keys());
       const input = form.elements[name];
-      // const parserName = input.dataset.parse;
-      // console.log(parserName);
       data.set(name, data.get(name));
-      console.log(name + " " + data.get(name));
-      // if (parserName) {
-      //   const parser = inputParsers[parserName];
-      //   const parsedValue = parser(data.get(name));
-      //   data.set(name, parsedValue);
-      // }
     }
 
-    // const temp = {name: "Cindy"};
-    // console.log(temp);
-    fetch('/api/form-submit-url', {
+    //convert FormData obj to json and push to endpoint for node
+    var formInfo = {};
+    data.forEach((value, key) => {
+      formInfo[key] = value;
+    });
+    var json = JSON.stringify(formInfo);
+    fetch('/signup-submit', { //endpoint
       method: 'POST',
-      body: data,
+      headers: {
+        'Content-Type': 'application/json'
+      }, //maybe don't need this
+      body: JSON.stringify(json),
     })
+    // .then(response => {
+    //   // we received the response and print the status code
+    //   console.log(response.status)
+    //   // return response body as JSON
+    //   return response.json()
+    // })
+    // .then(json => {
+    //   // print the JSON
+    //   console.log(json)
+    // })
+    .then(res => console.log("res " + res.json()))
+    .then(console.log(JSON.stringify(json)))
     .then(res => console.log(res));
     // .then(res => console.log(res))
     // .then(temp => console.log("success!!", JSON.stringify(temp)))
@@ -102,7 +113,7 @@ class Signup extends React.Component {
     //     console.log(err)
     // })
     //
-    // fetch('/api/form-submit-url', {
+    // fetch('signup-submit', {
     //   method: 'GET',
     // })
     // .then((response) => console.log('Success: ', JSON.stringify(response)));
