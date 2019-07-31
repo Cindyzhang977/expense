@@ -31,27 +31,27 @@ class HomePage extends React.Component {
     console.log(<SlideShow />);
 
     return (
-      // <div>
-      //   <Navbar
-      //     clickLogin={() => this.showLoginBox}
-      //     clickSignup={() => this.showSignupBox}
-      //   />
-      //   {this.state.isSignupOpen?
-      //     <Signup onClick={() => this.showLoginBox}/> :
-      //     <Login onClick={() => this.showSignupBox}/>}
-      // </div>
       <div>
         <Navbar
           clickLogin={() => this.showLoginBox}
           clickSignup={() => this.showSignupBox}
         />
-        <div className="desktop-signup">
-          <div className="info-graphics"><SlideShow /></div>
-          {this.state.isSignupOpen?
-            <Signup onClick={() => this.showLoginBox}/> :
-            <Login onClick={() => this.showSignupBox}/>}
-        </div>
+        {this.state.isSignupOpen?
+          <Signup onClick={() => this.showLoginBox}/> :
+          <Login onClick={() => this.showSignupBox}/>}
       </div>
+      // <div>
+      //   <Navbar
+      //     clickLogin={() => this.showLoginBox}
+      //     clickSignup={() => this.showSignupBox}
+      //   />
+      //   <div className="desktop-signup">
+      //     <div className="info-graphics"><SlideShow /></div>
+      //     {this.state.isSignupOpen?
+      //       <Signup onClick={() => this.showLoginBox}/> :
+      //       <Login onClick={() => this.showSignupBox}/>}
+      //   </div>
+      // </div>
     )
   };
 }
@@ -138,9 +138,9 @@ class SlideShow extends React.Component {
   }
 }
 
-function Slide(props) {
-  return <div className="slide"><img src={img1} /></div>
-}
+// function Slide(props) {
+//   return <div className="slide"><img src={img1} /></div>
+// }
 
 function RightArrow(props) {
   return (
@@ -239,31 +239,35 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <div className="form-container">
-          <div className="heading"><h1>Sign Up</h1></div>
-          <form onSubmit={this.handleSubmit}>
-              <div className="name">
-                  <div id="first-name">
-                      First Name <br />
-                      <input type="text" name="firstname" onChange={this.onFirstnameChange.bind(this)} /><br />
-                  </div>
-                  <div id="last-name">
-                      Last Name <br />
-                      <input type="text" name="lastname" onChange={this.onLastnameChange.bind(this)} /><br />
-                  </div>
-              </div>
-              Email <br />
-              <input type="text" name="email" onChange={this.onEmailChange.bind(this)} /><br />
-              Username <br />
-              <input type="text" name="username" onChange={this.onUsernameChange.bind(this)} /><br />
-              Password <br />
-              <input type="text" name="password" onChange={this.onPasswordChange.bind(this)} /><br />
-              Confirm Password <br />
-              <input type="text" name="password" onChange={this.onPasswordConfirm.bind(this)} /><br />
-              <div align="right"><input type="submit" value="Sign Up" className="button" /></div>
-              <p className="change-option"><button onClick={this.props.onClick()}>Already have an account? Log in here!</button></p>
-          </form>
+      <div className="desktop-signup">
+        <div className="info-graphics"><SlideShow /></div>
+        <div className="form-container">
+            <div className="heading"><h1>Sign Up</h1></div>
+            <form onSubmit={this.handleSubmit}>
+                <div className="name">
+                    <div id="first-name">
+                        First Name <br />
+                        <input type="text" name="firstname" onChange={this.onFirstnameChange.bind(this)} /><br />
+                    </div>
+                    <div id="last-name">
+                        Last Name <br />
+                        <input type="text" name="lastname" onChange={this.onLastnameChange.bind(this)} /><br />
+                    </div>
+                </div>
+                Email <br />
+                <input type="text" name="email" onChange={this.onEmailChange.bind(this)} /><br />
+                Username <br />
+                <input type="text" name="username" onChange={this.onUsernameChange.bind(this)} /><br />
+                Password <br />
+                <input type="text" name="password" onChange={this.onPasswordChange.bind(this)} /><br />
+                Confirm Password <br />
+                <input type="text" name="password" onChange={this.onPasswordConfirm.bind(this)} /><br />
+                <div align="right"><input type="submit" value="Sign Up" className="button" /></div>
+                <p className="change-option"><button onClick={this.props.onClick()}>Already have an account? Log in here!</button></p>
+            </form>
+        </div>
       </div>
+
     );
   }
 }

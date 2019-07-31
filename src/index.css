@@ -1,6 +1,7 @@
 ﻿:root {
     --theme: #5dba7f;
-    --darker-theme: #57ad76;
+    /* --highlight: #57ad76; */
+    --highlight: #e6a08b;
     --light-theme: #f2f5f4;
     --accent: #3D7871;
     --off-black: #4a4a4a;
@@ -36,6 +37,8 @@ h1 {
     color: var(--accent);
     font-size: 20px;
     font-weight: 600;
+    border-left: 4px solid var(--highlight);
+    padding-left: 5px;
 }
 
 img {
@@ -62,7 +65,7 @@ img {
 }
 
 .button:hover {
-    background-color: var(--darker-theme);
+    background-color: var(--highlight);
 }
 
 input {
@@ -103,7 +106,7 @@ input[type=submit] {
 
 .link:hover, .change-option:hover {
     text-decoration: underline;
-    color: var(--darker-theme);
+    color: var(--highlight);
 }
 
 .form-container {
@@ -156,7 +159,7 @@ input[type=submit] {
         justify-content: space-between;
     }
 
-    .form-container {
+    .desktop-signup > .form-container {
         margin-right: 5%;
         margin-left: 0;
         margin-top: 5%;
