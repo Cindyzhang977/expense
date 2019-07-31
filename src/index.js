@@ -4,6 +4,9 @@ import './index.css';
 import logo from "./imgs/logo.png";
 import img1 from "./imgs/1.png";
 import img2 from "./imgs/2.png";
+import img3 from "./imgs/3.png";
+
+// <Route path='/' component={Homepage} />
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -17,12 +20,10 @@ class HomePage extends React.Component {
   }
 
   showLoginBox() {
-    console.log("show login");
     this.setState({isLoginOpen: true, isSignupOpen: false});
   }
 
   showSignupBox() {
-    console.log("show signup");
     this.setState({isSignupOpen: true, isLoginOpen: false});
   }
 
@@ -73,7 +74,7 @@ class SlideShow extends React.Component {
     this.nextSlide = this.nextSlide.bind(this);
     this.prevSlide = this.prevSlide.bind(this);
     this.state = {
-      imgs: [img1, img2],
+      imgs: [img1, img3],
       currIndex: 0,
       // translateValue: 0,
     }
@@ -118,7 +119,6 @@ class SlideShow extends React.Component {
   }
 
   render() {
-    console.log("slider render");
     console.log("currIndex" + this.state.currIndex);
 
     return (
@@ -144,16 +144,16 @@ function Slide(props) {
 
 function RightArrow(props) {
   return (
-    <div className="nextArrow" onClick={props.nextSlide}>
-      <i className="arrow right"></i>
+    <div className="nextArrow arrow" onClick={props.nextSlide}>
+      <i className="right"></i>
     </div>
   );
 }
 
 function LeftArrow(props) {
   return (
-    <div className="backArrow" onClick={props.prevSlide}>
-      <i className="arrow left"></i>
+    <div className="backArrow arrow" onClick={props.prevSlide}>
+      <i className="left"></i>
     </div>
   );
 }
@@ -218,6 +218,12 @@ class Signup extends React.Component {
 
     var json = JSON.stringify(formInfo);
     fetch('/signup-submit', { //endpoint
+      method: 'POST',
+      body: JSON.stringify(json),
+    })
+    .then(console.log(JSON.stringify(json)))
+
+    fetch('/', { //endpoint
       method: 'POST',
       body: JSON.stringify(json),
     })

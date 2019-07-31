@@ -39,7 +39,11 @@ h1 {
 }
 
 img {
-  width: 90%;
+  max-width: 70%;
+  border-radius: 5%;
+  width: 825px;
+  height: 325px;
+  overflow: hidden;
 }
 
 .menu > li {
@@ -154,7 +158,7 @@ input[type=submit] {
 
     .form-container {
         margin-right: 5%;
-        margin-left: 5%;
+        margin-left: 0;
         margin-top: 5%;
     }
 
@@ -176,18 +180,21 @@ input[type=submit] {
 
     .slide {
       padding: 10px;
+      width: 825px;
       /* border: solid 2px red; */
     }
 
     .slider-wrapper {
       position: relative;
       padding-left: 20px;
+      width: 500px;
+      /* border: solid 2px green; */
     }
 
     .nextArrow {
       position: absolute;
       top: 45%;
-      right: 4%;
+      right: -22%;
       z-index: 999;
       color: #fff;
     }
@@ -204,7 +211,7 @@ input[type=submit] {
       border: solid black;
       border-width: 0 3px 3px 0;
       display: inline-block;
-      padding: 3px;
+      padding: 5px;
     }
 
     .right {
@@ -216,6 +223,14 @@ input[type=submit] {
       transform: rotate(135deg);
       -webkit-transform: rotate(135deg);
     }
+
+    /* .arrow {
+      padding: 5px;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      background-color: blue;
+    } */
 
     #first-name {
         margin-right: 10px;
