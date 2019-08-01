@@ -43,7 +43,7 @@ h1 {
 
 img {
   max-width: 70%;
-  border-radius: 5%;
+  border-radius: 15px;
   width: 825px;
   height: 325px;
   overflow: hidden;
@@ -111,7 +111,7 @@ input[type=submit] {
 
 .form-container {
     border: solid 2px var(--accent);
-    border-radius: 2%;
+    border-radius: 15px;
     padding: 20px;
     margin-right: 20%;
     margin-left: 20%;
@@ -120,6 +120,7 @@ input[type=submit] {
     background-color: var(--light-theme);
     font-size: 15px;
     color: black;
+    z-index: 2;
 }
 
 .change-option {
@@ -178,7 +179,6 @@ input[type=submit] {
     .slider {
       position: relative;
       margin: 20px;
-      z-index: -1;
       /* border: 2px solid blue; */
     }
 

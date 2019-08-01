@@ -10,13 +10,14 @@ class SlideShow extends React.Component {
     this.nextSlide = this.nextSlide.bind(this);
     this.prevSlide = this.prevSlide.bind(this);
     this.state = {
-      imgs: [img1, img3],
+      imgs: [img3, img1, img2],
       currIndex: 0,
       // translateValue: 0,
     }
   }
 
   prevSlide() {
+    console.log("prev slide");
     if(this.state.currIndex === 0)
       return;
 
@@ -43,10 +44,11 @@ class SlideShow extends React.Component {
   }
 
   slideWidth() {
-    return document.querySelector('.slide').clientWidth
+    return document.querySelector('.slide').clientWidth;
   }
 
   showSlide(n) {
+    console.log("show slide");
     return (
       <div className="slide">
         <img src={this.state.imgs[n]} />
@@ -73,10 +75,6 @@ class SlideShow extends React.Component {
     );
   }
 }
-
-// function Slide(props) {
-//   return <div className="slide"><img src={img1} /></div>
-// }
 
 function RightArrow(props) {
   return (
