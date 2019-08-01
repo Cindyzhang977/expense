@@ -6,6 +6,7 @@ import logo from "./imgs/logo.png";
 import Login from "./login.js";
 import Signup from "./signup.js";
 import Dashboard from "./dashboard.js";
+import UserRouting from "./user.js";
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class HomePage extends React.Component {
   }
 
   render() {
+    console.log("render homepafe");
     return (
       <div>
         <Navbar
@@ -34,21 +36,9 @@ class HomePage extends React.Component {
           clickSignup={() => this.showSignupBox}
         />
         {this.state.isSignupOpen?
-          <Signup onClick={() => this.showLoginBox}/> :
-          <Login onClick={() => this.showSignupBox}/>}
+          <Signup onClick={() => this.showLoginBox} /> :
+          <Login onClick={() => this.showSignupBox} />}
       </div>
-      // <div>
-      //   <Navbar
-      //     clickLogin={() => this.showLoginBox}
-      //     clickSignup={() => this.showSignupBox}
-      //   />
-      //   <div className="desktop-signup">
-      //     <div className="info-graphics"><SlideShow /></div>
-      //     {this.state.isSignupOpen?
-      //       <Signup onClick={() => this.showLoginBox}/> :
-      //       <Login onClick={() => this.showSignupBox}/>}
-      //   </div>
-      // </div>
     )
   };
 }
@@ -69,7 +59,7 @@ const routing = (
   <Router>
     <div>
       <Route exact path="/" component={HomePage} />
-      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/dashboard" component={UserRouting} />
     </div>
   </Router>
 )
