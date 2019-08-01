@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import './index.css';
 import SlideShow from "./slideshow.js";
 
@@ -12,6 +13,7 @@ class Signup extends React.Component {
       email: '',
       username: '',
       password: '',
+      toDashboard: false,
     };
   }
 
@@ -71,9 +73,14 @@ class Signup extends React.Component {
     })
     .then((response) => console.log('Success: ', JSON.stringify(response)));
     //response is param for this function that stringifies response json file (aka the data)
+    this.setState({toDashboard: true});
   }
 
   render() {
+    if (this.state.toDashboard === true) {
+      return <Redirect to='/dashboard' />;
+    }
+
     return (
       <div className="desktop-signup">
         <div className="info-graphics"><SlideShow /></div>

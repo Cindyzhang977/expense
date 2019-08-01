@@ -11,6 +11,11 @@ p {
     color: #9c9c9c;
 }
 
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
 .nav-link {
     padding-bottom: 3px;
     padding-top: 3px;
@@ -75,11 +80,6 @@ p {
     padding-bottom: 40px;
 }
 
-.spending-limit {
-    max-width: 400px;
-    margin-left: 0;
-}
-
 .set-limit-form {
     display: flex;
     justify-content: space-between;
@@ -108,9 +108,10 @@ input {
 
 .input-expense-form > select {
     padding: 2px;
-    border-radius: 8%;
+    border-radius: 5px;
     background-color: var(--light-theme);
-    flex: 1;
+    flex: 2;
+    border: none;
 }
 
 .amount-input {
@@ -122,7 +123,7 @@ input {
 }
 
 .input-expense-form > input[type=submit] {
-    flex: 3;
+    flex: 4;
 }
 
 .tracker {
@@ -160,6 +161,7 @@ input {
     width: 100%;
     background-color: green;
     border-radius: 50px;
+    width: 40%;
 }
 
 .progress-tracker {

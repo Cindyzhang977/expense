@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Route, Link, BrowserRouter as Router} from 'react-router-dom';
 import './index.css';
 import logo from "./imgs/logo.png";
 import Login from "./login.js";
 import Signup from "./signup.js";
-
-// <Route path='/' component={Homepage} />
+import Dashboard from "./dashboard.js";
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -65,8 +65,17 @@ function Navbar(props) {
   );
 }
 
+const routing = (
+  <Router>
+    <div>
+      <Route exact path="/" component={HomePage} />
+      <Route path="/dashboard" component={Dashboard} />
+    </div>
+  </Router>
+)
+
 ReactDOM.render(
-  <HomePage />,
+  routing,
   document.getElementById('root')
 );
 
