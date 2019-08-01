@@ -4,6 +4,7 @@ import {Route, Link, BrowserRouter as Router, Redirect} from 'react-router-dom';
 import "./dashboard.css";
 import SpendingLimit from "./spending-limit.js";
 import ExpenseTracker from "./expense-tracker.js";
+import Profile from "./profile.js";
 import HomePage from "./index.js";
 import logo from "./imgs/logo.png";
 
@@ -51,9 +52,9 @@ class Navbar extends React.Component {
               </div>
           </div>
           <ul id="menu">
-              <li><div className="nav-link">Dashboard</div></li>
+              <li><div className="nav-link"><Link to="/dashboard">Dashboard</Link></div></li>
               <li><div className="nav-link">Expense History</div></li>
-              <li><div className="nav-link">Manage Profile</div></li>
+              <li><div className="nav-link"><Link to="/manage-profile">Manage Profile</Link></div></li>
               <li><div className="nav-link"><Link to="/">Log Out</Link></div></li>
           </ul>
       </div>
@@ -67,6 +68,8 @@ const routing = (
     <div>
       <Route exact path="/" component={HomePage} />
       <Route path="/dashboard" component={Dashboard} />
+      <Route path="/expense-history" component={HomePage} />
+      <Route path="/manage-profile" component={Profile} />
     </div>
   </Router>
 )

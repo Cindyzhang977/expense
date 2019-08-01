@@ -50,7 +50,7 @@ class Signup extends React.Component {
     const form = event.target;
     const data = new FormData(form);
 
-    //get input values from form
+    //get input values from form ---- should chnage to get keys from state
     for (let name of data.keys()) {
       data.set(name, data.get(name));
     }

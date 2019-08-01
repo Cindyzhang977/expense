@@ -159,7 +159,7 @@ a {
 .filler {
     height: 100%;
     width: 100%;
-    background-color: green;
+    background-color: var(--highlight);
     border-radius: 50px;
     width: 40%;
 }
