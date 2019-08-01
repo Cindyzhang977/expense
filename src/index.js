@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import logo from "./imgs/logo.png";
-import SlideShow from "./slideshow.js";
 import Login from "./login.js";
 import Signup from "./signup.js";
 

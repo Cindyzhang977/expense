@@ -1,0 +1,217 @@
+﻿@import "index.css"; /*rename to user.css*/
+
+:root {
+    --highlight: #e6a08b;
+    --darker-theme: #e6a08b;
+}
+
+p {
+    font-size: 15px;
+    margin-top: 5px;
+    color: #9c9c9c;
+}
+
+.nav-link {
+    padding-bottom: 3px;
+    padding-top: 3px;
+    margin: 2px;
+    text-align: right;
+}
+
+.line {
+    background: var(--accent);
+    height: 6px;
+    width: 35px;
+    display: block;
+    margin: 3px;
+    border-radius: 20%;
+}
+
+.navbar {
+    align-items: center;
+    display: flex;
+    border: none;
+}
+
+.nav {
+    border-bottom: solid 2px #dee3e1;
+    padding-bottom: 5px;
+}
+
+.drop-down {
+    display: flex;
+    flex-direction: column;
+}
+
+#menu {
+    display: none; /*mobile hidden*/
+    width: 35%;
+    position: relative;
+    left: 65%;
+}
+
+
+#menu > li {
+    display: block;
+    color: var(--theme);
+    margin-right: 8px;
+}
+
+#menu > li:hover {
+    color: var(--highlight);
+}
+
+.content {
+    margin: auto;
+    max-width: 900px;
+    padding: 50px;
+}
+
+.content-item {
+    margin: auto;
+}
+
+.spending-limit, .expense-tracker, .progress {
+    padding-bottom: 40px;
+}
+
+.spending-limit {
+    max-width: 400px;
+    margin-left: 0;
+}
+
+.set-limit-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+input {
+    margin: 10px;
+}
+
+.limit-input {
+    flex: 2.5;
+    margin-left: 0;
+}
+
+.limit-submit {
+    flex: 1;
+}
+
+.input-expense-form {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.input-expense-form > select {
+    padding: 2px;
+    border-radius: 8%;
+    background-color: var(--light-theme);
+    flex: 1;
+}
+
+.amount-input {
+    flex: 2;
+}
+
+.description-input {
+    flex: 7;
+}
+
+.input-expense-form > input[type=submit] {
+    flex: 3;
+}
+
+.tracker {
+    border: solid 2px var(--accent);
+    min-height: 100px;
+    padding: 10px;
+    margin-top: 7px;
+    border-radius: 3%;
+    background-color: var(--light-theme);
+}
+
+.expense-input {
+    font-size: 13px;
+    text-align: center;
+}
+
+.progress > input[type=submit] {
+    width: 40%;
+}
+
+.progress {
+    display: flex;
+    flex-direction: column;
+}
+
+.bar {
+    margin-right: 10px;
+    height: 17px;
+    border-radius: 50px;
+    border: 1px solid var(--off-black);
+}
+
+.filler {
+    height: 100%;
+    width: 100%;
+    background-color: green;
+    border-radius: 50px;
+}
+
+.progress-tracker {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.progress-bar {
+    flex: 5;
+}
+
+.progress-tracker > p {
+    flex: 1;
+}
+
+#percentage {
+    align-self: center;
+}
+
+@media screen and (min-width: 600px) {
+    .drop-down {
+        display: block;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #menu {
+        display: flex;
+        position: unset;
+        min-width: 60%;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 15px;
+    }
+
+    #menu > li {
+        width: auto;
+        text-align: center;
+        margin-left: 5px;
+        border-bottom: 2px solid white;
+    }
+
+    #menu > li:hover {
+        border-bottom-color: var(--highlight);
+    }
+}

@@ -14,15 +14,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 // var parentDir = __dirname.split(path.sep)[:-1];
-// app.use('/', express.static(path.join(__dirname, "../")));
+app.use('/', express.static(path.join(__dirname, "../")));
 // app.use('/', express.static(path.join(parentDir, 'index.js')));
 console.log(path.join(__dirname, "../../src"));
-app.use(express.static(path.join(__dirname, "../../src")));
+// app.use(express.static(path.join(__dirname, "../../src")));
 
-// app.get('/', (req, res) => {
-// 	console.log('log');
-//   res.sendFile(path.join(__dirname, '../index.html'));
-// });
+app.get('/', (req, res) => {
+	console.log('log');
+  // res.sendFile(path.join(__dirname, '../index.html'));
+});
 
 app.post('/signup-submit', function(req, res) {
 	console.log("got a get request for /conjugate");

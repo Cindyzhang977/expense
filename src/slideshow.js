@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
 import img1 from "./imgs/1.png";
 import img2 from "./imgs/2.png";

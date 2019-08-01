@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
 import SlideShow from "./slideshow.js";
 
@@ -59,26 +58,18 @@ class Signup extends React.Component {
     data.forEach((value, key) => {
       formInfo[key] = value;
     });
-    console.log("state: " + JSON.stringify(this.state));
 
     var json = JSON.stringify(formInfo);
-    fetch('/signup-submit', { //endpoint
+    fetch('/server/signup-submit', { //endpoint
       method: 'POST',
       body: JSON.stringify(json),
     })
     .then(console.log(JSON.stringify(json)))
 
-    fetch('/', { //endpoint
-      method: 'POST',
-      body: JSON.stringify(json),
+    fetch('/server/signup-submit', {
+      method: 'GET',
     })
-    .then(console.log(JSON.stringify(json)))
-    // .then(res => console.log(res))
-
-    // fetch('signup-submit', {
-    //   method: 'GET',
-    // })
-    // .then((response) => console.log('Success: ', JSON.stringify(response)));
+    .then((response) => console.log('Success: ', JSON.stringify(response)));
     //response is param for this function that stringifies response json file (aka the data)
   }
 

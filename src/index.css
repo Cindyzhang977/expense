@@ -178,6 +178,7 @@ input[type=submit] {
     .slider {
       position: relative;
       margin: 20px;
+      z-index: -1;
       /* border: 2px solid blue; */
     }
 
