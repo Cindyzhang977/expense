@@ -56,11 +56,11 @@ class HomePage extends React.Component {
 function Navbar(props) {
   return (
     <div className="navbar">
-        <div className="menu-item"><a href="index.html" id="expense-logo">expen<img id="logo" src={logo} alt="expense logo"/>e</a></div>
-        <ul className="menu">
-            <li className="menu-item link"><button onClick={props.clickLogin()}>Log In</button></li>
-            <li className="menu-item button"><button onClick={props.clickSignup()}>Sign Up</button></li>
-        </ul>
+      <div className="menu-item"><Link to="/" id="expense-logo">expen<img id="logo" src={logo} alt="expense logo"/>e</Link></div>
+      <ul className="menu">
+          <li className="menu-item link"><button onClick={props.clickLogin()}>Log In</button></li>
+          <li className="menu-item button"><button onClick={props.clickSignup()}>Sign Up</button></li>
+      </ul>
     </div>
   );
 }

@@ -43,7 +43,7 @@ class Navbar extends React.Component {
     return (
       <div className="nav">
           <div className="navbar">
-              <div className="menu-item"><a href="index.html" id="expense-logo">expen<img id="logo" src={logo} alt="expense logo"/>e</a></div>
+              <div className="menu-item"><Link to="/" id="expense-logo">expen<img id="logo" src={logo} alt="expense logo"/>e</Link></div>
               <div className="menu-icon" onClick={this.toggleMenu}>
                   <span className="line"></span>
                   <span className="line"></span>
