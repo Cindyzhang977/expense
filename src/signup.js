@@ -38,10 +38,14 @@ class Signup extends React.Component {
   }
 
   onPasswordConfirm(e) {
+    var match = document.getElementById("password-confirm");
+    var text = document.getElementById("password-text");
     if (e.target.value !== this.state.password) {
-      console.log("pass must match");
+      match.style.border = "1px solid #f03737";
+      text.style.display = "block";
     } else {
-      console.log("ok");
+      match.style.border = "solid 1px #cccccc";
+      text.style.display = "none";
     }
   }
 
@@ -86,25 +90,26 @@ class Signup extends React.Component {
         <div className="info-graphics"><SlideShow /></div>
         <div className="form-container">
             <div className="heading"><h1>Sign Up</h1></div>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} autoComplete="off">
                 <div className="name">
                     <div id="first-name">
                         First Name <br />
-                        <input type="text" name="firstname" onChange={this.onFirstnameChange.bind(this)} /><br />
+                        <input type="text" name="firstname" onChange={this.onFirstnameChange.bind(this)} required/><br />
                     </div>
                     <div id="last-name">
                         Last Name <br />
-                        <input type="text" name="lastname" onChange={this.onLastnameChange.bind(this)} /><br />
+                        <input type="text" name="lastname" onChange={this.onLastnameChange.bind(this)} required/><br />
                     </div>
                 </div>
                 Email <br />
-                <input type="text" name="email" onChange={this.onEmailChange.bind(this)} /><br />
+                <input type="text" name="email" onChange={this.onEmailChange.bind(this)} required/><br />
                 Username <br />
-                <input type="text" name="username" onChange={this.onUsernameChange.bind(this)} /><br />
+                <input type="text" name="username" onChange={this.onUsernameChange.bind(this)} required/><br />
                 Password <br />
-                <input type="text" name="password" onChange={this.onPasswordChange.bind(this)} /><br />
+                <input type="text" name="password" onChange={this.onPasswordChange.bind(this)} required/><br />
                 Confirm Password <br />
-                <input type="text" name="password" onChange={this.onPasswordConfirm.bind(this)} /><br />
+                <input type="text" name="password" id="password-confirm" onChange={this.onPasswordConfirm.bind(this)} required/><br />
+                <p id="password-text">* Passwords must match *</p>
                 <div align="right"><input type="submit" value="Sign Up" className="button" /></div>
                 <p className="change-option"><button onClick={this.props.onClick()}>Already have an account? Log in here!</button></p>
             </form>

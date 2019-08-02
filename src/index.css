@@ -149,6 +149,13 @@ input[type=submit] {
   margin-right: 2px;
 }
 
+#password-text {
+  margin: 0;
+  font-size: 12px;
+  color: #f03737;
+  display: none;
+}
+
 @media screen and (min-width: 550px) {
     input[type=submit] {
         min-width: 80px;
@@ -158,12 +165,6 @@ input[type=submit] {
     .name {
         display: flex;
         justify-content: space-between;
-    }
-
-    .login {
-      margin-left: 30%;
-      margin-right: 30%;
-      margin-top: 70px;
     }
 
     .desktop-signup > .form-container {
@@ -232,6 +233,12 @@ input[type=submit] {
     .left {
       transform: rotate(135deg);
       -webkit-transform: rotate(135deg);
+    }
+
+    .login {
+      margin-left: 30%;
+      margin-right: 30%;
+      margin-top: 70px;
     }
 
     /* .arrow {

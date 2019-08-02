@@ -5,7 +5,7 @@ import './index.css';
 import logo from "./imgs/logo.png";
 import Login from "./login.js";
 import Signup from "./signup.js";
-import Dashboard from "./dashboard.js";
+// import Dashboard from "./dashboard.js";
 import UserRouting from "./user.js";
 
 class HomePage extends React.Component {

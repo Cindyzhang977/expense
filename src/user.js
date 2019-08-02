@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Link, BrowserRouter as Router, Redirect} from 'react-router-dom';
 import logo from "./imgs/logo.png";
-import "./dashboard.css";
+import "./user.css";
 import HomePage from "./index.js";
 import Dashboard from "./dashboard.js";
 import Profile from "./profile.js";
@@ -18,7 +18,7 @@ class UserRouting extends React.Component {
   toggleMenu() {
     var menu = document.getElementById("menu");
     var currDisplay = menu.style.display;
-    if (currDisplay == "block") {
+    if (currDisplay === "block") {
         menu.style.display = "none";
     } else {
         menu.style.display = "block";

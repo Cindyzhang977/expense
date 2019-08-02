@@ -51,7 +51,7 @@ class SlideShow extends React.Component {
     console.log("show slide");
     return (
       <div className="slide">
-        <img src={this.state.imgs[n]} />
+        <img src={this.state.imgs[n]} alt="infographic"/>
       </div>
     );
   }
@@ -63,8 +63,8 @@ class SlideShow extends React.Component {
       <div className="slider">
         <div className="slider-wrapper"
          style={{
-           transform: `translateX(${this.state.translateValue}px)`,
-           transition: 'transform ease-out 0.45s'
+           // transform: `translateX(${this.state.translateValue}px)`,
+           // transition: 'transform ease-out 0.45s'
          }}>
            {this.showSlide(this.state.currIndex)}
         </div>

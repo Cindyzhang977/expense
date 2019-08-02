@@ -1,5 +1,5 @@
 import React from 'react';
-import './dashboard.css';
+import './user.css';
 
 class ExpenseTracker extends React.Component {
   render() {

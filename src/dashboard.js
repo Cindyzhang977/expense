@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {Route, Link, BrowserRouter as Router, Redirect} from 'react-router-dom';
-import "./dashboard.css";
+// import ReactDOM from 'react-dom';
+// import {Route, Link, BrowserRouter as Router, Redirect} from 'react-router-dom';
+import "./user.css";
 import SpendingLimit from "./spending-limit.js";
 import ExpenseTracker from "./expense-tracker.js";
 // import Profile from "./profile.js";
