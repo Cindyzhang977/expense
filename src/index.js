@@ -28,7 +28,6 @@ class HomePage extends React.Component {
   }
 
   render() {
-    console.log("render homepafe");
     return (
       <div>
         <Navbar
