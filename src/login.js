@@ -12,7 +12,7 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="form-container">
+      <div className="form-container login">
           <div className="heading"><h1>Log In</h1></div>
           <form action="[specify form handler, what to do with form once submitted]">
               Username <br />

@@ -1,0 +1,52 @@
+﻿@import "dashboard.css";
+
+p {
+    color: black;
+    font-size: 15px;
+    margin: 11px 0px 27px 10px;
+    min-width: 100px;
+}
+
+.profile-info {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.info-item > form {
+    max-width: 75%;
+    /*display: none;*/
+}
+
+.info {
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-buttons {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container {
+    margin: 20px 0 20px 0;
+}
+
+.form-container > input[type=text] {
+    margin-left: 0;
+}
+
+@media screen and (min-width: 600px) {
+    .info > input {
+        max-width: 50%;
+    }
+
+    .edit-buttons {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+}

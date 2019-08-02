@@ -1,6 +1,6 @@
 ﻿:root {
     --theme: #5dba7f;
-    /* --highlight: #57ad76; */
+    /* --darker-theme: #57ad76; */
     --highlight: #e6a08b;
     --light-theme: #f2f5f4;
     --accent: #3D7871;
@@ -158,6 +158,12 @@ input[type=submit] {
     .name {
         display: flex;
         justify-content: space-between;
+    }
+
+    .login {
+      margin-left: 30%;
+      margin-right: 30%;
+      margin-top: 70px;
     }
 
     .desktop-signup > .form-container {

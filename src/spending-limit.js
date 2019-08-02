@@ -16,11 +16,21 @@ class SpendingLimit extends React.Component {
 
   render() {
     if (!this.state.spendingLimit) {
-      return <LimitSetter setSpendingLimit={this.setSpendingLimit.bind(this)} />;
+      return (
+        <div>
+          <Header />
+          <LimitSetter setSpendingLimit={this.setSpendingLimit.bind(this)} />
+        </div>
+      );
     } else {
-      return <ProgressBar
-              spendingLimit={this.state.spendingLimit}
-              amount={this.state.amount} />;
+      return (
+        <div>
+          <Header />
+          <ProgressBar
+                  spendingLimit={this.state.spendingLimit}
+                  amount={this.state.amount} />
+        </div>
+      );
     }
   }
 }
@@ -42,8 +52,7 @@ class LimitSetter extends React.Component {
   render() {
     return (
       <div className="spending-limit content-item content">
-          <h1>Spending limit</h1>
-          <p>Set a monthly spending limit to help you reach your goals!</p>
+
           <form className="set-limit-form" onSubmit={this.handleSubmit.bind(this)}>
               <input type="text" name="limit-value" className="limit-input" />
               <input type="submit" value="Set Limit" className="button limit-submit" />
@@ -64,7 +73,7 @@ class ProgressBar extends React.Component {
   //props: amount, spendingLimit
   render() {
     return(
-      <div className="progress content">
+      <div className="progress content content-item">
           <input type="submit" value="Edit Limit" className="button" />
           <div className="progress-tracker">
               <div className="progress-bar">
@@ -76,6 +85,15 @@ class ProgressBar extends React.Component {
       </div>
     );
   }
+}
+
+function Header(props) {
+  return (
+    <div className="spending-header content">
+      <h1>Spending limit</h1>
+      <p>Set a monthly spending limit to help you reach your goals!</p>
+    </div>
+  );
 }
 
 export default SpendingLimit;

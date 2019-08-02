@@ -19,6 +19,10 @@ a {
   text-align: right;
 }
 
+.nav-link:hover {
+  cursor: pointer;
+}
+
 .line {
   background: var(--accent);
   height: 6px;
@@ -36,7 +40,8 @@ a {
 
 .nav {
   border-bottom: solid 2px #dee3e1;
-  padding-bottom: 5px;
+  padding-bottom: 4px;
+  padding-top: 4px;
 }
 
 .drop-down {
@@ -68,12 +73,12 @@ a {
   padding: 50px;
 }
 
-.content-item {
-  margin: auto;
-}
-
 .spending-limit, .expense-tracker, .progress {
   padding-bottom: 40px;
+}
+
+.spending-header {
+  padding-bottom: 0;
 }
 
 .set-limit-form {
@@ -124,6 +129,13 @@ a {
 
 .input-expense-form > input[type=submit] {
     flex: 4;
+}
+
+
+.content-item {
+  margin: auto;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .tracker {

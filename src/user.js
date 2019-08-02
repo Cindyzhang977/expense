@@ -16,7 +16,13 @@ class UserRouting extends React.Component {
   }
 
   toggleMenu() {
-    return;
+    var menu = document.getElementById("menu");
+    var currDisplay = menu.style.display;
+    if (currDisplay == "block") {
+        menu.style.display = "none";
+    } else {
+        menu.style.display = "block";
+    }
   }
 
   toHomePage() {
@@ -32,7 +38,7 @@ class UserRouting extends React.Component {
         <div>
           <div className="nav">
               <div className="navbar">
-                  <div className="menu-item"><Link to="/" id="expense-logo">expen<img id="logo" src={logo} alt="expense logo"/>e</Link></div>
+                  <div className="menu-item nav-link" id="expense-logo" onClick={this.toHomePage.bind(this)}>expen<img id="logo" src={logo} alt="expense logo"/>e</div>
                   <div className="menu-icon" onClick={this.toggleMenu}>
                       <span className="line"></span>
                       <span className="line"></span>
@@ -42,7 +48,7 @@ class UserRouting extends React.Component {
               <ul id="menu">
                   <li><div className="nav-link"><Link to="/dashboard">Dashboard</Link></div></li>
                   <li><div className="nav-link">Expense History</div></li>
-                  <li><div className="nav-link"><Link to="/">Manage Profile</Link></div></li>
+                  <li><div className="nav-link"><Link to="/manage-profile">Manage Profile</Link></div></li>
                   <li><div className="nav-link" onClick={this.toHomePage.bind(this)}>Log Out</div></li>
               </ul>
           </div>
