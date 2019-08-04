@@ -5,6 +5,7 @@
     --light-theme: #f2f5f4;
     --accent: #3D7871;
     --off-black: #4a4a4a;
+    --red: #f03737;
     /*--grey: #dee3e1;*/
 }
 
@@ -133,6 +134,12 @@ input[type=submit] {
 
 .info-graphics {
   display: none;
+}
+
+
+.invalid-input {
+  color: var(--red);
+  margin: 0;
 }
 
 #expense-logo {

@@ -6,7 +6,6 @@ class SpendingLimit extends React.Component {
     super(props);
     this.state = {
       spendingLimit: 0,
-      amount: 0,
     }
   }
 
@@ -28,7 +27,7 @@ class SpendingLimit extends React.Component {
           <Header />
           <ProgressBar
                   spendingLimit={this.state.spendingLimit}
-                  amount={this.state.amount} />
+                  amount={this.props.amount} />
         </div>
       );
     }
@@ -45,30 +44,36 @@ class LimitSetter extends React.Component {
     const form = event.target;
     const data = new FormData(form);
 
-    console.log(data.get("limit-value")); //correct
-    this.props.setSpendingLimit(data.get("limit-value"));
+    var input = parseFloat(data.get("limit-value"));
+    if (isNaN(parseFloat(input))) {
+      document.getElementById("invalid-limit").style.display = "block";
+    } else {
+      document.getElementById("invalid-limit").style.display = "none";
+      this.props.setSpendingLimit(data.get("limit-value"));
+    }
   }
 
   render() {
     return (
       <div className="spending-limit content-item content">
 
-          <form className="set-limit-form" onSubmit={this.handleSubmit.bind(this)}>
+          <form className="set-limit-form" onSubmit={this.handleSubmit.bind(this)} autoComplete="off">
               <input type="text" name="limit-value" className="limit-input" />
               <input type="submit" value="Set Limit" className="button limit-submit" />
           </form>
+          <p style={{display: "none"}} id="invalid-limit" className="invalid-input">* Invalid input *</p>
       </div>
     );
   }
 }
 
 class ProgressBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      width: this.props.amount / this.props.spendingLimit * 100,
-    }
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     width: this.props.amount / this.props.spendingLimit * 100,
+  //   }
+  // }
 
   //props: amount, spendingLimit
   render() {
@@ -77,11 +82,11 @@ class ProgressBar extends React.Component {
           <input type="submit" value="Edit Limit" className="button" />
           <div className="progress-tracker">
               <div className="progress-bar">
-                  <div className="bar"><div className="filler" style={{width: this.state.width+'%'}}></div></div>
+                  <div className="bar"><div className="filler" style={{width: this.props.amount / this.props.spendingLimit * 100 + '%'}}></div></div>
               </div>
               <p>${this.props.spendingLimit}</p>
           </div>
-          <p id="percentage">{this.state.width}%</p>
+          <p id="percentage">{(this.props.amount / this.props.spendingLimit * 100).toFixed(2)}%</p>
       </div>
     );
   }

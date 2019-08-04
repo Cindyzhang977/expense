@@ -9,11 +9,22 @@ import ExpenseTracker from "./expense-tracker.js";
 // import logo from "./imgs/logo.png";
 
 class Dashboard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      amount: 0,
+    }
+  }
+
+  setAmount(value) {
+    this.setState({amount: this.state.amount + value});
+  }
+
   render() {
     return (
       <div>
-        <SpendingLimit />
-        <ExpenseTracker />
+        <SpendingLimit amount={this.state.amount} />
+        <ExpenseTracker setAmount={this.setAmount.bind(this)} />
       </div>
     );
   }
