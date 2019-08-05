@@ -9,6 +9,7 @@ class SlideShow extends React.Component {
     super(props);
     this.nextSlide = this.nextSlide.bind(this);
     this.prevSlide = this.prevSlide.bind(this);
+    this.showSlide = this.showSlide.bind(this);
     this.state = {
       imgs: [img3, img1, img2],
       currIndex: 0,
@@ -48,7 +49,6 @@ class SlideShow extends React.Component {
   }
 
   showSlide(n) {
-    console.log("show slide");
     return (
       <div className="slide">
         <img src={this.state.imgs[n]} alt="infographic"/>
@@ -58,20 +58,43 @@ class SlideShow extends React.Component {
 
   render() {
     console.log("currIndex" + this.state.currIndex);
+    const dots = this.state.imgs.map((img, index) => {
+      let isActive = "";
+      if (this.state.currIndex === index) {
+        isActive = "active";
+      }
+      console.log(isActive, index);
+      return <Dot key={index} index={index} isActive={isActive} onClick = {() => {
+        this.setState({currIndex: index});
+        this.showSlide(index)}}/>;
+    });
 
     return (
-      <div className="slider">
-        <div className="slider-wrapper"
-         style={{
-           // transform: `translateX(${this.state.translateValue}px)`,
-           // transition: 'transform ease-out 0.45s'
-         }}>
-           {this.showSlide(this.state.currIndex)}
-        </div>
+      <div>
+        <div className="slider">
+          <div className="slider-wrapper"
+           style={{
+             // transform: `translateX(${this.state.translateValue}px)`,
+             // transition: 'transform ease-out 0.45s'
+           }}>
+             {this.showSlide(this.state.currIndex)}
+          </div>
 
-        <LeftArrow prevSlide={this.prevSlide} />
-        <RightArrow nextSlide={this.nextSlide} />
+          <LeftArrow prevSlide={this.prevSlide} />
+          <RightArrow nextSlide={this.nextSlide} />
+          <div className="dots">{dots}</div>
+          
+        </div>
       </div>
+    );
+  }
+}
+
+class Dot extends React.Component {
+  render() {
+    console.log("dot " + this.props.isActive + this.props.index);
+    return(
+      <span className={this.props.isActive + " dot"} onClick={this.props.onClick}></span>
     );
   }
 }

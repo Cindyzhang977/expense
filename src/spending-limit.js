@@ -68,14 +68,6 @@ class LimitSetter extends React.Component {
 }
 
 class ProgressBar extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     width: this.props.amount / this.props.spendingLimit * 100,
-  //   }
-  // }
-
-  //props: amount, spendingLimit
   render() {
     return(
       <div className="progress content content-item">
