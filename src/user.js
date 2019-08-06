@@ -5,6 +5,7 @@ import "./user.css";
 import HomePage from "./index.js";
 import Dashboard from "./dashboard.js";
 import Profile from "./profile.js";
+import ExpenseHistory from "./expense-history.js";
 
 class UserRouting extends React.Component {
   constructor(props) {
@@ -47,13 +48,13 @@ class UserRouting extends React.Component {
               </div>
               <ul id="menu">
                   <li><div className="nav-link"><Link to="/dashboard">Dashboard</Link></div></li>
-                  <li><div className="nav-link">Expense History</div></li>
+                  <li><div className="nav-link"><Link to="/expense-history">Expense History</Link></div></li>
                   <li><div className="nav-link"><Link to="/manage-profile">Manage Profile</Link></div></li>
                   <li><div className="nav-link" onClick={this.toHomePage.bind(this)}>Log Out</div></li>
               </ul>
           </div>
           <Route path="/dashboard" component={Dashboard} />
-          <Route path="/expense-history" component={HomePage} />
+          <Route path="/expense-history" component={ExpenseHistory} />
           <Route path="/manage-profile" component={Profile} />
         </div>
       </Router>
