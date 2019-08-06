@@ -99,20 +99,20 @@ a {
 }
 
 .input-expense-form {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    width: 100%;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
 }
 
 .input-expense-form > select {
-    padding: 2px;
-    border-radius: 5px;
-    background-color: var(--light-theme);
-    flex: 2;
-    border: none;
-    min-width: 80px;
+  padding: 2px;
+  border-radius: 5px;
+  background-color: var(--light-theme);
+  flex: 2;
+  border: none;
+  min-width: 80px;
 }
 
 .input-expense-form > input {
@@ -120,15 +120,15 @@ a {
 }
 
 .amount-input {
-    flex: 2;
+  flex: 2;
 }
 
 .description-input {
-    flex: 7;
+  flex: 7;
 }
 
 .input-expense-form > input[type=submit] {
-    flex: 4;
+  flex: 4;
 }
 
 
@@ -139,60 +139,76 @@ a {
 }
 
 .tracker {
-    border: solid 2px var(--accent);
-    min-height: 100px;
-    padding: 10px;
-    margin-top: 7px;
-    border-radius: 10px;
-    background-color: var(--light-theme);
+  border: solid 2px var(--accent);
+  min-height: 100px;
+  padding: 10px;
+  margin-top: 7px;
+  border-radius: 10px;
+  background-color: var(--light-theme);
 }
 
 .expense-input {
-    font-size: 13px;
-    text-align: center;
+  font-size: 13px;
+  text-align: center;
 }
 
-.progress > input[type=submit] {
-    width: 40%;
+.progress > .button {
+  width: 20%;
+  font-size: 13px;
+  padding: 5px;
 }
 
 .progress {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .bar {
-    margin-right: 10px;
-    height: 17px;
-    border-radius: 50px;
-    border: 1px solid var(--off-black);
+  margin-right: 10px;
+  height: 17px;
+  border-radius: 50px;
+  border: 1px solid var(--off-black);
 }
 
 .filler {
-    height: 100%;
-    width: 100%;
-    background-color: var(--highlight);
-    border-radius: 50px;
-    width: 40%;
+  height: 100%;
+  background-color: var(--highlight);
+  border-radius: 50px;
+  width: 40%;
+  max-width: 100%;
 }
 
 .progress-tracker {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .progress-bar {
-    flex: 5;
+  flex: 5;
 }
 
 .progress-tracker > p {
-    flex: 1;
+  flex: 1;
 }
 
 #percentage {
-    align-self: center;
+  align-self: center;
+}
+
+#cancel {
+  margin-left: 7px;
+  padding: 3px;
+  color: var(--theme);
+  background-color: white;
+  border: 2px solid var(--theme);
+}
+
+#cancel:hover {
+  color: var(--highlight);
+  border-color: var(--highlight);
+  cursor: pointer;
 }
 
 @media screen and (min-width: 600px) {
