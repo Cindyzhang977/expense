@@ -4,10 +4,10 @@ import "./user.css";
 class ExpenseHistory extends React.Component {
   render() {
     return (
-      <div class="content">
+      <div className="content">
           <h1>Expense History</h1>
           <p>Here is a graph to visualize your past expenses.</p>
-          <div style="height: 100px;"></div>
+          <div id="space"></div>
           <h1>PAGE UNDER CONSTRUCTION :(</h1>
       </div>
     );
