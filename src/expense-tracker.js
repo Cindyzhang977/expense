@@ -68,7 +68,7 @@ class ExpenseTracker extends React.Component {
           <div className="expense-tracker content-item">
               <h1>Expense Tracker</h1>
               <p>Enter your earnings and spendings to track your finances!</p>
-              <form id="expense-form" className="input-expense-form" onSubmit={this.handleSubmit.bind(this)}>
+              <form id="expense-form" className="input-expense-form" onSubmit={this.handleSubmit.bind(this)} autoComplete="off">
                   <select name="in-out" required>
                       <option>-- Type --</option>
                       <option value="In">In</option>
