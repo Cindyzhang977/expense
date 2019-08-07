@@ -18,7 +18,6 @@ class SlideShow extends React.Component {
   }
 
   prevSlide() {
-    console.log("prev slide");
     if(this.state.currIndex === 0)
       return;
 
@@ -29,7 +28,6 @@ class SlideShow extends React.Component {
   }
 
   nextSlide() {
-    console.log("next slide");
     if (this.state.currIndex === this.state.imgs.length - 1) {
       return this.setState({
         currIndex: 0,
@@ -57,13 +55,11 @@ class SlideShow extends React.Component {
   }
 
   render() {
-    console.log("currIndex" + this.state.currIndex);
     const dots = this.state.imgs.map((img, index) => {
       let isActive = "";
       if (this.state.currIndex === index) {
         isActive = "active";
       }
-      console.log(isActive, index);
       return <Dot key={index} index={index} isActive={isActive} onClick = {() => {
         this.setState({currIndex: index});
         this.showSlide(index)}}/>;
@@ -83,7 +79,7 @@ class SlideShow extends React.Component {
           <LeftArrow prevSlide={this.prevSlide} />
           <RightArrow nextSlide={this.nextSlide} />
           <div className="dots">{dots}</div>
-          
+
         </div>
       </div>
     );
@@ -92,7 +88,6 @@ class SlideShow extends React.Component {
 
 class Dot extends React.Component {
   render() {
-    console.log("dot " + this.props.isActive + this.props.index);
     return(
       <span className={this.props.isActive + " dot"} onClick={this.props.onClick}></span>
     );

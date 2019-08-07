@@ -58,6 +58,8 @@ const routing = (
     <div>
       <Route exact path="/" component={HomePage} />
       <Route path="/dashboard" component={UserRouting} />
+      <Route path="/expense-history" component={UserRouting} />
+      <Route path="/manage-profile" component={UserRouting} />
     </div>
   </Router>
 )

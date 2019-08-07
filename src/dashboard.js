@@ -1,12 +1,7 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
-// import {Route, Link, BrowserRouter as Router, Redirect} from 'react-router-dom';
 import "./user.css";
 import SpendingLimit from "./spending-limit.js";
 import ExpenseTracker from "./expense-tracker.js";
-// import Profile from "./profile.js";
-// import HomePage from "./index.js";
-// import logo from "./imgs/logo.png";
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -16,7 +11,10 @@ class Dashboard extends React.Component {
     }
   }
 
-  setAmount(value) {
+  setAmount(value, type) {
+    if (type === "In") {
+      value = 0;
+    }
     this.setState({amount: this.state.amount + value});
   }
 

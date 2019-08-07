@@ -2,6 +2,20 @@ import React from 'react';
 import './user.css';
 
 class ExpenseTracker extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      trackerItems: [],
+      count: 0,
+    }
+  }
+
+  incrementCount() {
+    this.setState(prevState => ({
+      count: prevState.count + 1,
+    }))
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     const form = event.target;
@@ -24,16 +38,31 @@ class ExpenseTracker extends React.Component {
       document.getElementById("invalid-amount").style.display = "block";
     } else {
       clearForm = true;
-      this.props.setAmount(amount);
       document.getElementById("invalid-amount").style.display = "none";
     }
 
     if (clearForm) {
+      this.props.setAmount(amount, type);
+      this.state.trackerItems.unshift(<TrackerItem key={this.state.count}
+                                                type={type}
+                                                amount={amount}
+                                                description={data.get("description")}
+                                                incrementCount={this.incrementCount.bind(this)} />);
       document.getElementById("expense-form").reset();
     }
   }
 
   render() {
+    try {
+      if (this.state.count === 0) {
+        document.getElementById("no-expenses").style.display = "block";
+      } else {
+        document.getElementById("no-expenses").style.display = "none";
+      }
+    } catch(err) {
+      //do nothing
+    }
+
     return (
       <div className="content">
           <div className="expense-tracker content-item">
@@ -42,8 +71,8 @@ class ExpenseTracker extends React.Component {
               <form id="expense-form" className="input-expense-form" onSubmit={this.handleSubmit.bind(this)}>
                   <select name="in-out" required>
                       <option>-- Type --</option>
-                      <option value="in">In</option>
-                      <option value="out">Out</option>
+                      <option value="In">In</option>
+                      <option value="Out">Out</option>
                   </select>
                   <input className="amount-input" type="text" name="amount" placeholder="Amount" required />
                   <input className="description-input" type="text" name="description" placeholder="Description" required />
@@ -52,7 +81,13 @@ class ExpenseTracker extends React.Component {
               <p id="invalid-type" className="invalid-input" style={{display: "none"}}>* Please select a valid type for the transaction *</p>
               <p id="invalid-amount" className="invalid-input" style={{display: "none"}}>* Please input a valid amount *</p>
               <div className="tracker">
-                  <div className="expense-input">---  You do not have any expenses to display  ---</div>
+                  <div id="no-expenses">---  You do not have any expenses to display  ---</div>
+                  <table>
+                    {this.state.trackerItems.map((item, index) => {
+                        return <tbody key={index}>{item}</tbody>;
+                      })
+                    }
+                  </table>
               </div>
           </div>
       </div>
@@ -60,20 +95,15 @@ class ExpenseTracker extends React.Component {
   }
 }
 
-class TrackerItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      type: "",
-      amount: 0,
-      description: "",
-    }
-  }
-
-  // render() {
-  //
-  // }
-
+function TrackerItem(props) {
+  props.incrementCount();
+  return (
+    <tr id="test">
+      <td className="type">{props.type}</td>
+      <td className={"amount " + props.type}>{props.amount}</td>
+      <td className="description">{props.description}</td>
+    </tr>
+  );
 }
 
 export default ExpenseTracker;

@@ -90,6 +90,12 @@ class ProgressBar extends React.Component {
     }
   }
 
+  componentDidUpdate() {
+    if (this.props.amount / this.props.spendingLimit * 100 >= 100) {
+      document.getElementById("percentage").style.color = "red";
+    }
+  }
+
   toggleReset() {
     this.setState({resetLimit: false});
   }

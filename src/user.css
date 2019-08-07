@@ -145,11 +145,8 @@ a {
   margin-top: 7px;
   border-radius: 10px;
   background-color: var(--light-theme);
-}
-
-.expense-input {
-  font-size: 13px;
-  text-align: center;
+  max-height: 300px;
+  overflow: auto;
 }
 
 .progress > .button {
@@ -191,6 +188,42 @@ a {
 
 .progress-tracker > p {
   flex: 1;
+}
+
+table {
+    font-size: 15px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+td, th {
+    text-align: left;
+    padding: 2px;
+}
+
+.type {
+    width: 11%;
+}
+
+.amount {
+    width: 22%;
+}
+
+.In {
+    color: green;
+}
+
+.Out {
+    color: #d62a1e;
+}
+
+#no-expenses {
+  font-size: 13px;
+  text-align: center;
 }
 
 #percentage {
