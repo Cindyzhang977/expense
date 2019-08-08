@@ -18,7 +18,7 @@ class Login extends React.Component {
               Username <br />
               <input type="text" name="username" required/><br />
               Password <br />
-              <input type="text" name="password" required/><br />
+              <input type="password" name="password" required/><br />
               <div align="right"><input type="submit" value="Log In" className="button" /></div>
               <p className="change-option"><button onClick={this.props.onClick()}>Don't have an account? Sign up here!</button></p>
           </form>

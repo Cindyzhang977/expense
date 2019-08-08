@@ -106,9 +106,9 @@ class Signup extends React.Component {
                 Username <br />
                 <input type="text" name="username" onChange={this.onUsernameChange.bind(this)} required/><br />
                 Password <br />
-                <input type="text" name="password" onChange={this.onPasswordChange.bind(this)} required/><br />
+                <input type="password" name="password" onChange={this.onPasswordChange.bind(this)} required/><br />
                 Confirm Password <br />
-                <input type="text" name="password" id="password-confirm" onChange={this.onPasswordConfirm.bind(this)} required/><br />
+                <input type="password" name="password" id="password-confirm" onChange={this.onPasswordConfirm.bind(this)} required/><br />
                 <p id="password-text">* Passwords must match *</p>
                 <div align="right"><input type="submit" value="Sign Up" className="button" /></div>
                 <p className="change-option"><button onClick={this.props.onClick()}>Already have an account? Log in here!</button></p>

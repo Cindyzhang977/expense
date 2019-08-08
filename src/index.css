@@ -76,7 +76,7 @@ input {
     padding: 3px;
 }
 
-input[type=text] {
+input[type=text], input[type=password] {
     border: solid 1px #cccccc;
     border-radius: 3px;
 }

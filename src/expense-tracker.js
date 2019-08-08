@@ -23,25 +23,25 @@ class ExpenseTracker extends React.Component {
 
     var clearForm = false;
 
+    var validType = false;
     var type = data.get("in-out");
     if (type === "-- Type --") {
-      clearForm = false;
       document.getElementById("invalid-type").style.display = "block";
     } else {
-      clearForm = true;
+      validType = true;
       document.getElementById("invalid-type").style.display = "none";
     }
 
+    var validAmount = false;
     var amount = parseFloat(data.get("amount"));
     if (isNaN(parseFloat(amount))) {
-      clearForm = false;
       document.getElementById("invalid-amount").style.display = "block";
     } else {
-      clearForm = true;
+      validAmount = true;
       document.getElementById("invalid-amount").style.display = "none";
     }
 
-    if (clearForm) {
+    if (validType && validAmount) {
       this.props.setAmount(amount, type);
       this.state.trackerItems.unshift(<TrackerItem key={this.state.count}
                                                 type={type}

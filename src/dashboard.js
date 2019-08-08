@@ -7,21 +7,23 @@ class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      amount: 0,
+      amountOut: 0,
+      amountIn: 0,
     }
   }
 
   setAmount(value, type) {
     if (type === "In") {
-      value = 0;
+      this.setState({amountIn: this.state.amountIn + value});
+    } else if (type === "Out") {
+      this.setState({amountOut: this.state.amountOut + value});
     }
-    this.setState({amount: this.state.amount + value});
   }
 
   render() {
     return (
       <div>
-        <SpendingLimit amount={this.state.amount} />
+        <SpendingLimit amount={this.state.amountOut} />
         <ExpenseTracker setAmount={this.setAmount.bind(this)} />
       </div>
     );
