@@ -7,21 +7,31 @@ class ExpenseTracker extends React.Component {
     this.state = {
       trackerItems: [],
       count: 0,
+      id: 0, //unique id for each TrackerItem
     }
   }
 
   incrementCount() {
+    this.setState({count: this.state.trackerItems.length})
     this.setState(prevState => ({
-      count: prevState.count + 1,
+      id: prevState.id + 1,
     }))
+  }
+
+  removeItem(id) {
+    this.setState(prevState => ({
+      count: prevState.count - 1,
+    }))
+    const items = this.state.trackerItems.filter(item => item.props.id !== id);
+    this.setState({trackerItems: items});
+    const removedItem = this.state.trackerItems.filter(item => item.props.id === id)[0];
+    this.props.setAmount(-removedItem.props.amount, removedItem.props.type);
   }
 
   handleSubmit(event) {
     event.preventDefault();
     const form = event.target;
     const data = new FormData(form);
-
-    var clearForm = false;
 
     var validType = false;
     var type = data.get("in-out");
@@ -43,16 +53,20 @@ class ExpenseTracker extends React.Component {
 
     if (validType && validAmount) {
       this.props.setAmount(amount, type);
-      this.state.trackerItems.unshift(<TrackerItem key={this.state.count}
+      this.state.trackerItems.unshift(<TrackerItem key={this.state.id}
+                                                id={this.state.id}
                                                 type={type}
                                                 amount={amount}
                                                 description={data.get("description")}
-                                                incrementCount={this.incrementCount.bind(this)} />);
+                                                incrementCount={this.incrementCount.bind(this)}
+                                                delete={this.removeItem.bind(this)} />);
       document.getElementById("expense-form").reset();
     }
   }
 
   render() {
+    console.log("count: " + this.state.count + " id: " + this.state.id);
+    console.log(this.state.trackerItems);
     try {
       if (this.state.count === 0) {
         document.getElementById("no-expenses").style.display = "block";
@@ -96,12 +110,14 @@ class ExpenseTracker extends React.Component {
 }
 
 function TrackerItem(props) {
+  console.log("In Tracker Item " + props.id);
   props.incrementCount();
   return (
     <tr id="test">
       <td className="type">{props.type}</td>
       <td className={"amount " + props.type}>{props.amount}</td>
       <td className="description">{props.description}</td>
+      <td className="x"><button onClick={() => props.delete(props.id)}>x</button></td>
     </tr>
   );
 }

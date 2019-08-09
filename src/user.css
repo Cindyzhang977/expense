@@ -213,6 +213,15 @@ td, th {
     width: 22%;
 }
 
+.description {
+  width: 60%;
+}
+
+.x {
+  color: var(--red);
+  font-size: 18px;
+}
+
 .In {
     color: green;
 }
