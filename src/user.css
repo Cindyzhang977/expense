@@ -140,13 +140,14 @@ a {
 
 .tracker {
   border: solid 2px var(--accent);
-  min-height: 100px;
+  min-height: 150px;
+  max-height: 400px;
   padding: 10px;
   margin-top: 7px;
   border-radius: 10px;
   background-color: var(--light-theme);
-  max-height: 300px;
   overflow: auto;
+  font-family: georgia; /*CHANGE*/
 }
 
 .progress > .button {
@@ -214,7 +215,7 @@ td, th {
 }
 
 .description {
-  width: 60%;
+  width: 50%;
 }
 
 .x {

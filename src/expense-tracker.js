@@ -65,8 +65,6 @@ class ExpenseTracker extends React.Component {
   }
 
   render() {
-    console.log("count: " + this.state.count + " id: " + this.state.id);
-    console.log(this.state.trackerItems);
     try {
       if (this.state.count === 0) {
         document.getElementById("no-expenses").style.display = "block";
@@ -110,13 +108,17 @@ class ExpenseTracker extends React.Component {
 }
 
 function TrackerItem(props) {
-  console.log("In Tracker Item " + props.id);
   props.incrementCount();
+  const monthDict = {0: "Jan", 1: "Feb", 2: "Mar", 3: "Apr", 4: "May", 5: "Jun", 6: "Jul", 7: "Aug", 8: "Sep",
+                     9: "Oct", 10: "Nov", 11: "Dec"};
+  const d = new Date();
+  const currDate = monthDict[d.getMonth()] + "-" + d.getDate()
   return (
     <tr id="test">
       <td className="type">{props.type}</td>
       <td className={"amount " + props.type}>{props.amount}</td>
       <td className="description">{props.description}</td>
+      <td className="date">{currDate}</td>
       <td className="x"><button onClick={() => props.delete(props.id)}>x</button></td>
     </tr>
   );
