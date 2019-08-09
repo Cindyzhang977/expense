@@ -3,21 +3,24 @@
 p {
     color: #3d3d3d;
     font-size: 15px;
-    margin: 11px 0px 27px 10px;
+    margin: 11px 0px 23px 10px;
     min-width: 100px;
+}
+
+form {
+  min-width: 50%;
+}
+
+form > input {
+  margin-bottom: 13px;
 }
 
 .profile-info {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
     flex-direction: column;
-    margin-bottom: 30px;
-}
-
-.info-item > form {
-    max-width: 75%;
-    /*display: none;*/
+    padding: 0 50px 0 50px;
 }
 
 .info {
@@ -30,19 +33,53 @@ p {
     flex: 1;
     display: flex;
     flex-direction: column;
+    margin: 5px;
 }
 
-.form-container > input[type=text] {
-    margin-left: 0;
+.form-container {
+  margin-top: 0;
 }
+
+.edit {
+  padding: 4px;
+}
+
+.edit, #cancel {
+  margin: 3px;
+  min-width: 90px;
+}
+
+/* .form-container > input[type=text] {
+    margin-left: 0;
+} */
 
 @media screen and (min-width: 600px) {
-    .info > input {
-        max-width: 50%;
+    form {
+      margin-right: 150px;
     }
 
+    .form-container {
+      border: 2px solid blue;
+    }
+
+    .form-container > input {
+      max-width: 300px;
+    }
+
+    .info-items {
+      margin-left: 50px;
+    }
     .edit-buttons {
         flex-direction: row;
         justify-content: flex-end;
+        margin-right: 160px;
+    }
+
+    .edit {
+      margin-right: 7px;
+    }
+
+    #change-pass {
+      min-width: 170px;
     }
 }
