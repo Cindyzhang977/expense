@@ -11,7 +11,7 @@ form {
   min-width: 50%;
 }
 
-form > input {
+.input {
   margin-bottom: 13px;
 }
 
@@ -49,19 +49,11 @@ form > input {
   min-width: 90px;
 }
 
-/* .form-container > input[type=text] {
-    margin-left: 0;
-} */
+#profile-form {
+  margin-right: 135px;
+}
 
 @media screen and (min-width: 600px) {
-    form {
-      margin-right: 150px;
-    }
-
-    .form-container {
-      border: 2px solid blue;
-    }
-
     .form-container > input {
       max-width: 300px;
     }
@@ -77,6 +69,10 @@ form > input {
 
     .edit {
       margin-right: 7px;
+    }
+
+    #change-pass-form {
+      width: 30%;
     }
 
     #change-pass {
