@@ -65,10 +65,10 @@ class Profile extends React.Component {
 function ProfileInfo(props) {
   return (
     <div id="profile-form">
-      <p className="input">{props.firstname}</p>
-      <p className="input">{props.lastname}</p>
-      <p className="input">{props.email}</p>
-      <p className="input">{props.username}</p>
+      <p className="non-input">{props.firstname}</p>
+      <p className="non-input">{props.lastname}</p>
+      <p className="non-input">{props.email}</p>
+      <p className="non-input">{props.username}</p>
     </div>
   )
 }
@@ -102,8 +102,7 @@ class ProfileForm extends React.Component {
 
   handleSubmit() {
     this.props.updateProfileInfo([this.state.firstname, this.state.lastname, this.state.email, this.state.username]);
-    this.props.edit();
-    console.log("edit");
+    this.props.toInfo();
   }
 
   render() {
@@ -116,7 +115,7 @@ class ProfileForm extends React.Component {
           <input type="text" value={this.state.username} onChange={this.onUsernameChange.bind(this)} className="input"/><br />
         </form>
         <div className="edit-buttons">
-          <button className="button" id="cancel" onClick={this.props.cancel}>Cancel</button> <br />
+          <button className="button" id="cancel" onClick={this.props.toInfo}>Cancel</button> <br />
           <button className="button edit" id="profile-edit" onClick={this.handleSubmit.bind(this)}>Edit</button>
         </div>
       </div>
@@ -158,8 +157,7 @@ class ChangeProfileInfo extends React.Component {
                     email={this.props.email}
                     username={this.props.username}
                     updateProfileInfo={this.props.updateProfileInfo}
-                    edit={this.toEdit.bind(this)}
-                    cancel={this.toInfo.bind(this)}
+                    toInfo={this.toInfo.bind(this)}
                   />
     }
 
@@ -167,10 +165,10 @@ class ChangeProfileInfo extends React.Component {
       <div className="profile-info content">
         <div className="info">
           <div className="info-items">
-            <p>First Name:</p>
-            <p>Last Name:</p>
-            <p>Email:</p>
-            <p>Username:</p>
+            <p><strong>First Name:</strong></p>
+            <p><strong>Last Name:</strong></p>
+            <p><strong>Email:</strong></p>
+            <p><strong>Username:</strong></p>
           </div>
           {toRender}
         </div>
@@ -187,11 +185,11 @@ function ResetPassword(props) {
     <form className="form-container" id="change-pass-form">
       <div>
           Old Password: <br />
-          <input type="text" name="old-password" /><br />
+          <input type="password" name="old-password" /><br />
           New Password: <br />
-          <input type="text" name="new-password" /><br />
+          <input type="password" name="new-password" /><br />
           Confirm New Password: <br />
-          <input type="text" />
+          <input type="password" />
         </div>
         <div className="edit-buttons">
           <button className="button" id="cancel">Cancel</button><br />
