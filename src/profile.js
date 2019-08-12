@@ -20,26 +20,6 @@ class Profile extends React.Component {
     this.setState({username: infoList[3]});
   }
 
-  // changeFirstname(name) {
-  //   this.setState({firstname: name});
-  // }
-  //
-  // changeLastname(name) {
-  //   this.setState({lastname: name});
-  // }
-  //
-  // changeUsername(name) {
-  //   this.setState({username: name});
-  // }
-  //
-  // changeEmail(email) {
-  //   this.setState({email: email});
-  // }
-  //
-  // changePassword(password) {
-  //   this.setState({password: password});
-  // }
-
   render() {
     return (
       <div>
@@ -64,7 +44,7 @@ class Profile extends React.Component {
 
 function ProfileInfo(props) {
   return (
-    <div id="profile-form">
+    <div>
       <p className="non-input">{props.firstname}</p>
       <p className="non-input">{props.lastname}</p>
       <p className="non-input">{props.email}</p>
@@ -108,13 +88,13 @@ class ProfileForm extends React.Component {
   render() {
     return (
       <div>
-        <form id="profile-form">
+        <form>
           <input type="text" name="firstname" value={this.state.firstname} onChange={this.onFirstnameChange.bind(this)} className="input"/><br />
           <input type="text" value={this.state.lastname} onChange={this.onLastnameChange.bind(this)} className="input"/><br />
           <input type="text" value={this.state.email} onChange={this.onEmailChange.bind(this)} className="input"/><br />
           <input type="text" value={this.state.username} onChange={this.onUsernameChange.bind(this)} className="input"/><br />
         </form>
-        <div className="edit-buttons">
+        <div className="edit-buttons" id="profile-form-edit-buttons">
           <button className="button" id="cancel" onClick={this.props.toInfo}>Cancel</button> <br />
           <button className="button edit" id="profile-edit" onClick={this.handleSubmit.bind(this)}>Edit</button>
         </div>
@@ -162,9 +142,9 @@ class ChangeProfileInfo extends React.Component {
     }
 
     return (
-      <div className="profile-info content">
+      <div className="profile-info form-container content" id="profile-info-section">
         <div className="info">
-          <div className="info-items">
+          <div>
             <p><strong>First Name:</strong></p>
             <p><strong>Last Name:</strong></p>
             <p><strong>Email:</strong></p>
