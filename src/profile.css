@@ -17,6 +17,7 @@ form {
 
 .non-input {
   margin-bottom: 23px;
+  margin-right: 100px;
 }
 
 .profile-info {
@@ -31,6 +32,7 @@ form {
     flex: 2;
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
 .edit-buttons {
@@ -38,6 +40,7 @@ form {
     display: flex;
     flex-direction: column;
     margin: 5px;
+    position: relative;
 }
 
 .form-container {
@@ -53,37 +56,58 @@ form {
   min-width: 90px;
 }
 
-#profile-form {
-  margin-right: 135px;
-}
-
 #to-edit {
   min-width: 170px;
 }
 
-@media screen and (min-width: 600px) {
-    .form-container > input {
-      max-width: 300px;
-    }
+#profile-form-edit-buttons {
+  position: relative;
+  right: 110px;
+}
 
-    .info-items {
-      margin-left: 50px;
-    }
-    .edit-buttons {
-        flex-direction: row;
-        justify-content: flex-end;
-        margin-right: 160px;
-    }
+#profile-info-section {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-right: 20%;
+  margin-left: 20%;
+}
 
-    .edit {
-      margin-right: 7px;
-    }
+@media screen and (min-width: 300px) and (max-width: 1200px) {
+  .input {
+    max-width: 60%;
+  }
+}
 
-    #change-pass-form {
-      width: 30%;
-    }
+@media screen and (min-width: 700px) {
+  .form-container > input {
+    max-width: 300px;
+  }
 
-    #change-pass {
-      min-width: 170px;
-    }
+  .edit-buttons {
+      flex-direction: row;
+      justify-content: flex-end;
+      margin-right: 160px;
+  }
+
+  .edit {
+    margin-right: 7px;
+  }
+
+  #change-pass-form {
+    width: 30%;
+  }
+
+  #change-pass {
+    min-width: 170px;
+  }
+
+  #profile-form-edit-buttons {
+    position: static;
+  }
+
+  #profile-info-section {
+    max-width: 50%;
+    min-width: 350px;
+    margin-right: 375px;
+  }
 }
