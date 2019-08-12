@@ -14,6 +14,7 @@ class Signup extends React.Component {
       username: '',
       password: '',
       toDashboard: false,
+      passwordsMatch: false,
     };
   }
 
@@ -43,9 +44,11 @@ class Signup extends React.Component {
     if (e.target.value !== this.state.password) {
       match.style.border = "1px solid #f03737";
       text.style.display = "block";
+      this.setState({passwordsMatch: false});
     } else {
       match.style.border = "solid 1px #cccccc";
       text.style.display = "none";
+      this.setState({passwordsMatch: true});
     }
   }
 
@@ -77,7 +80,9 @@ class Signup extends React.Component {
     })
     .then((response) => console.log('Success: ', JSON.stringify(response)));
     //response is param for this function that stringifies response json file (aka the data)
-    this.setState({toDashboard: true});
+    if (this.state.passwordsMatch) {
+      this.setState({toDashboard: true});
+    }
   }
 
   render() {
