@@ -58,6 +58,7 @@ form {
 
 #to-edit {
   min-width: 170px;
+  max-width: 200px;
 }
 
 #profile-form-edit-buttons {
@@ -86,7 +87,7 @@ form {
   .edit-buttons {
       flex-direction: row;
       justify-content: flex-end;
-      margin-right: 160px;
+      margin-right: 100px;
   }
 
   .edit {

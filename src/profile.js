@@ -152,29 +152,12 @@ class ChangeProfileInfo extends React.Component {
           </div>
           {toRender}
         </div>
-        <EditButtons isEdit={this.state.isEdit}
-                     toEdit={this.toEdit.bind(this)}
-                     toInfo={this.toInfo.bind(this)}
-        />
+        <div className="edit-buttons">
+          <button className="button edit" id="to-edit" onClick={this.toEdit.bind(this)}>Edit Profile Info</button>
+        </div>
       </div>
     );
   }
-}
-
-function EditButtons(props) {
-  if (props.isEdit) {
-    return (
-      <div className="edit-buttons">
-        <button className="button" id="cancel" onClick={props.toInfo}>Cancel</button> <br />
-        <button className="button edit" id="profile-edit">Edit</button>
-      </div>
-    );
-  }
-  return (
-    <div className="edit-buttons">
-      <button className="button edit" id="to-edit" onClick={props.toEdit}>Edit Profile Info</button>
-    </div>
-  );
 }
 
 function ResetPassword(props) {
