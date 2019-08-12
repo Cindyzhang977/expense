@@ -160,6 +160,27 @@ input[type=submit] {
   background-color: #717171;
 }
 
+.popup {
+  position: fixed;
+  top: 40%;
+  right: 50%;
+  background-color: white;
+  border: 2px solid green;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.popup > .button {
+  width: 35%;
+  position: relative;
+  left: 32%;
+  padding: 2px 6px 2px 6px;
+}
+
+.popup > p {
+  margin-left: 0;
+}
+
 #expense-logo {
     color: black;
     font-size: 30px;

@@ -4,7 +4,7 @@ import "./index.css";
 class PopUp extends React.Component {
   render() {
     return (
-      <div>
+      <div className="popup">
         <Text success={this.props.resetSuccessful} />
         <button className="button" onClick={this.props.togglePopUp}>OK</button>
       </div>
