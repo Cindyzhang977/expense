@@ -1,5 +1,6 @@
 import React from 'react';
 import "./profile.css";
+import PopUp from "./popup.js";
 
 class Profile extends React.Component {
   constructor(props){
@@ -20,7 +21,13 @@ class Profile extends React.Component {
     this.setState({username: infoList[3]});
   }
 
+  updatePassword(newPassword) {
+    console.log("updating password to " + newPassword);
+    this.setState({password: newPassword});
+  }
+
   render() {
+    console.log("password in profile: " + this.state.password);
     return (
       <div>
         <div className="content">
@@ -36,7 +43,10 @@ class Profile extends React.Component {
         <div className="content">
             <h1>Reset Password</h1>
         </div>
-        <ResetPassword />
+        <ResetPassword
+          password={this.state.password}
+          updatePassword={this.updatePassword.bind(this)}
+        />
       </div>
     );
   }
@@ -160,23 +170,94 @@ class ChangeProfileInfo extends React.Component {
   }
 }
 
-function ResetPassword(props) {
-  return (
-    <form className="form-container" id="change-pass-form">
+class ResetPassword extends React.Component {
+  constructor(props) {
+    super(props);
+    this.togglePopUp.bind(this);
+    this.state = {
+      oldpass: "",
+      newpass: "",
+      passwordsMatch: false,
+      resetSuccessful: false,
+      showPopUp: false,
+    }
+  }
+
+  onOldPassChange(e) {
+    this.setState({oldpass: e.target.value});
+  }
+
+  onNewPassChange(e) {
+    this.setState({newpass: e.target.value});
+  }
+
+  onPasswordConfirm(e) {
+    var match = document.getElementById("password-confirm");
+    var text = document.getElementById("password-text");
+    if (e.target.value !== this.state.newpass) {
+      match.style.border = "1px solid #f03737";
+      text.style.display = "block";
+      this.setState({passwordsMatch: false});
+    } else {
+      match.style.border = "solid 1px #cccccc";
+      text.style.display = "none";
+      this.setState({passwordsMatch: true});
+    }
+  }
+
+  reset(event) {
+    event.preventDefault();
+    console.log("entered old pass: " + this.state.oldpass);
+    console.log("real old pass: " + this.props.password);
+    if (this.state.passwordsMatch && this.state.oldpass === this.props.password) {
+      this.setState({resetSuccessful: true});
+      this.props.updatePassword(this.state.newpass);
+    } else {
+      this.setState({resetSuccessful: false});
+    }
+    document.getElementById('change-pass-form').reset();
+    this.togglePopUp();
+  }
+
+  togglePopUp() {
+    this.setState({showPopUp: !this.state.showPopUp});
+  }
+
+  render() {
+    try {
+      const popup = document.getElementById('popup');
+      if (this.state.showPopUp) {
+          popup.style.display = "block";
+      } else {
+        popup.style.display = "none";
+      }
+    } catch {
+      //do nothing
+    }
+
+    return (
       <div>
-          Old Password: <br />
-          <input type="password" name="old-password" /><br />
-          New Password: <br />
-          <input type="password" name="new-password" /><br />
-          Confirm New Password: <br />
-          <input type="password" />
+        <form className="form-container" id="change-pass-form">
+          <div>
+              Old Password: <br />
+              <input type="password" name="old-password" onChange={this.onOldPassChange.bind(this)} /><br />
+              New Password: <br />
+              <input type="password" name="new-password" onChange={this.onNewPassChange.bind(this)} /><br />
+              Confirm New Password: <br />
+              <input type="password" id="password-confirm" onChange={this.onPasswordConfirm.bind(this)} /> <br />
+              <p id="password-text">* Passwords must match *</p>
+            </div>
+            <div className="edit-buttons">
+              <button className="button" id="cancel">Cancel</button><br />
+              <button className="button edit" id="change-pass" onClick={this.reset.bind(this)}>Change Password</button><br />
+            </div>
+        </form>
+        <div id="popup">
+          <PopUp resetSuccessful={this.state.resetSuccessful} togglePopUp={this.togglePopUp.bind(this)}/>
         </div>
-        <div className="edit-buttons">
-          <button className="button" id="cancel">Cancel</button><br />
-          <button className="button edit" id="change-pass">Change Password</button><br />
-        </div>
-    </form>
-  );
+      </div>
+    );
+  }
 }
 
 export default Profile;
