@@ -22,12 +22,10 @@ class Profile extends React.Component {
   }
 
   updatePassword(newPassword) {
-    console.log("updating password to " + newPassword);
     this.setState({password: newPassword});
   }
 
   render() {
-    console.log("password in profile: " + this.state.password);
     return (
       <div>
         <div className="content">
@@ -207,8 +205,6 @@ class ResetPassword extends React.Component {
 
   reset(event) {
     event.preventDefault();
-    console.log("entered old pass: " + this.state.oldpass);
-    console.log("real old pass: " + this.props.password);
     if (this.state.passwordsMatch && this.state.oldpass === this.props.password) {
       this.setState({resetSuccessful: true});
       this.props.updatePassword(this.state.newpass);
@@ -217,6 +213,12 @@ class ResetPassword extends React.Component {
     }
     document.getElementById('change-pass-form').reset();
     this.togglePopUp();
+  }
+
+  cancelReset(event) {
+    event.preventDefault();
+    this.setState({oldpass: "", newpass: "", passwordsMatch: false, showPopUp: false});
+    document.getElementById('change-pass-form').reset();
   }
 
   togglePopUp() {
@@ -248,7 +250,7 @@ class ResetPassword extends React.Component {
               <p id="password-text">* Passwords must match *</p>
             </div>
             <div className="edit-buttons">
-              <button className="button" id="cancel">Cancel</button><br />
+              <button className="button" id="cancel" onClick={this.cancelReset.bind(this)}>Cancel</button><br />
               <button className="button edit" id="change-pass" onClick={this.reset.bind(this)}>Change Password</button><br />
             </div>
         </form>
