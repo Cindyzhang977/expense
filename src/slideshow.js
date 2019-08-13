@@ -13,8 +13,35 @@ class SlideShow extends React.Component {
     this.state = {
       imgs: [img3, img1, img2],
       currIndex: 0,
-      // translateValue: 0,
     }
+  }
+
+  componentDidMount() {
+    const waitTime = 5000;
+    window.addEventListener("load", () => {
+      this.showSlide(this.state.currIndex);
+      this.timer = setInterval(this.nextSlide, waitTime);
+    });
+
+    var arrows = document.getElementsByClassName('arrow');
+    for (var i = 0; i < arrows.length; i++) {
+      arrows[i].addEventListener('click', () => {
+        clearInterval(this.timer);
+        this.timer = setInterval(this.nextSlide, waitTime);
+      });
+    }
+
+    var dots = document.getElementsByClassName('dot');
+    for (var j = 0; j < dots.length; j++) {
+      dots[j].addEventListener('click', () => {
+        clearInterval(this.timer);
+        this.timer = setInterval(this.nextSlide, waitTime);
+      });
+    }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
   }
 
   prevSlide() {
@@ -23,7 +50,6 @@ class SlideShow extends React.Component {
 
     this.setState(prevState => ({
       currIndex: prevState.currIndex - 1,
-      // translateValue: prevState.translateValue + this.slideWidth()
     }))
   }
 
@@ -31,13 +57,11 @@ class SlideShow extends React.Component {
     if (this.state.currIndex === this.state.imgs.length - 1) {
       return this.setState({
         currIndex: 0,
-        // translateValue: 0
       })
     }
 
     this.setState(prevState => ({
       currIndex: prevState.currIndex + 1,
-      // translateValue: prevState.translateValue + -(this.slideWidth()) //fix later to loop
     }));
 
   }
@@ -68,11 +92,7 @@ class SlideShow extends React.Component {
     return (
       <div>
         <div className="slider">
-          <div className="slider-wrapper"
-           style={{
-             // transform: `translateX(${this.state.translateValue}px)`,
-             // transition: 'transform ease-out 0.45s'
-           }}>
+          <div className="slider-wrapper">
              {this.showSlide(this.state.currIndex)}
           </div>
 
