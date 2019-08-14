@@ -17,18 +17,19 @@ class SpendingLimit extends React.Component {
     if (!this.state.spendingLimit) {
       return (
         <div>
-          <Header />
-          <LimitSetter setSpendingLimit={this.setSpendingLimit.bind(this)} isReset={false} />
+          {this.props.header}
+          <LimitSetter setSpendingLimit={this.setSpendingLimit.bind(this)} isReset={false} type={this.props.type}/>
         </div>
       );
     } else {
       return (
         <div>
-          <Header />
+          {this.props.header}
           <ProgressBar
                   spendingLimit={this.state.spendingLimit}
                   amount={this.props.amount}
-                  setSpendingLimit={this.setSpendingLimit.bind(this)} />
+                  setSpendingLimit={this.setSpendingLimit.bind(this)}
+                  type={this.props.type} />
         </div>
       );
     }
@@ -36,9 +37,6 @@ class SpendingLimit extends React.Component {
 }
 
 class LimitSetter extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
 
   handleSubmit(event) {
     event.preventDefault();
@@ -58,12 +56,14 @@ class LimitSetter extends React.Component {
   }
 
   render() {
+    console.log(this.props.type);
+
     if (this.props.isReset) {
       return (
         <div className="spending-limit content-item content">
             <form className="set-limit-form" onSubmit={this.handleSubmit.bind(this)} autoComplete="off">
                 <input type="text" name="limit-value" className="limit-input" />
-                <input type="submit" value="Reset Limit" className="button limit-submit" />
+                <input type="submit" value={"Reset " + this.props.type} className="button limit-submit" />
                 <input type='submit' className="button limit-submit" onClick={this.props.toggleReset} id="cancel" value="Cancel"/>
             </form>
             <p style={{display: "none"}} id="invalid-limit" className="invalid-input">* Invalid input *</p>
@@ -74,7 +74,7 @@ class LimitSetter extends React.Component {
       <div className="spending-limit content-item content">
           <form className="set-limit-form" onSubmit={this.handleSubmit.bind(this)} autoComplete="off">
               <input type="text" name="limit-value" className="limit-input" />
-              <input type="submit" value="Set Limit" className="button limit-submit" />
+              <input type="submit" value={"Set " + this.props.type} className="button limit-submit" />
           </form>
           <p style={{display: "none"}} id="invalid-limit" className="invalid-input">* Invalid input *</p>
       </div>
@@ -105,23 +105,24 @@ class ProgressBar extends React.Component {
   }
 
   render() {
-    var button = !this.state.resetLimit ? <EditButton onClick={this.toggleLimitSetter.bind(this)}/> :
-                                         <LimitSetter setSpendingLimit={this.props.setSpendingLimit}
-                                                      isReset={true}
-                                                      toggleReset={this.toggleReset.bind(this)}/>;
+    var button = !this.state.resetLimit ? <EditButton onClick={this.toggleLimitSetter.bind(this)} type={this.props.type}/> :
+                                          <LimitSetter setSpendingLimit={this.props.setSpendingLimit}
+                                                       isReset={true}
+                                                       toggleReset={this.toggleReset.bind(this)}
+                                                       type={this.props.type} />;
 
     return(
       <div>
-      <div className="spending-limit content-item">{button}</div>
-      <div className="progress content content-item">
-          <div className="progress-tracker">
-              <div className="progress-bar">
-                  <div className="bar"><div className="filler" style={{width: this.props.amount / this.props.spendingLimit * 100 + '%'}}></div></div>
-              </div>
-              <p>${this.props.spendingLimit}</p>
-          </div>
-          <p id="percentage">{(this.props.amount / this.props.spendingLimit * 100).toFixed(2)}%</p>
-      </div>
+        <div className="spending-limit content-item">{button}</div>
+        <div className="progress content content-item">
+            <div className="progress-tracker">
+                <div className="progress-bar">
+                    <div className="bar"><div className="filler" style={{width: this.props.amount / this.props.spendingLimit * 100 + '%'}}></div></div>
+                </div>
+                <p>${this.props.spendingLimit}</p>
+            </div>
+            <p id="percentage">{(this.props.amount / this.props.spendingLimit * 100).toFixed(2)}%</p>
+        </div>
       </div>
     );
   }
@@ -130,16 +131,7 @@ class ProgressBar extends React.Component {
 function EditButton(props) {
   return (
     <div className="progress content content-item">
-      <button className="button" onClick={props.onClick}>Edit Limit</button>
-    </div>
-  );
-}
-
-function Header(props) {
-  return (
-    <div className="spending-header content">
-      <h1>Spending limit</h1>
-      <p>Set a monthly spending limit to help you reach your goals!</p>
+      <button className="button" onClick={props.onClick}>Edit {props.type}</button>
     </div>
   );
 }

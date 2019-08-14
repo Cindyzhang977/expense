@@ -20,7 +20,7 @@ class ExpenseHistory extends React.Component {
         if (id === this.state.activeTab) {
           classname = "tab-selected";
         }
-        return <Tab className={classname} id={id} changeActiveTab={this.changeActiveTab.bind(this)} />;
+        return <Tab key={id} className={classname} id={id} changeActiveTab={this.changeActiveTab.bind(this)} />;
     });
 
     return (

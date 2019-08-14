@@ -23,11 +23,30 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <SpendingLimit amount={this.state.amountOut} />
+        <SpendingLimit amount={this.state.amountOut} header={<SpendingHeader />} type='Limit' />
+        <SpendingLimit amount={this.state.amountIn} header={<SavingHeader />} type='Goal' />
         <ExpenseTracker setAmount={this.setAmount.bind(this)} />
       </div>
     );
   }
+}
+
+function SpendingHeader() {
+  return (
+    <div className="spending-header content">
+      <h1>Spending Limit</h1>
+      <p>Set a monthly spending limit to control impulsive spending!</p>
+    </div>
+  );
+}
+
+function SavingHeader() {
+  return (
+    <div className="spending-header content">
+      <h1>Saving Goal</h1>
+      <p>Set a monthly saving goal to help you reach your goals!</p>
+    </div>
+  );
 }
 
 export default Dashboard;
