@@ -181,6 +181,10 @@ class ResetPassword extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.setState({showPopUp: false});
+  }
+
   onOldPassChange(e) {
     this.setState({oldpass: e.target.value});
   }

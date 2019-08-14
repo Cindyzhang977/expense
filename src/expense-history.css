@@ -1,5 +1,39 @@
 @import "user.css";
 
-#space {
-  height: 100px;
+.tracker-container {
+    margin: 40px 12% 0 12%;
+}
+
+.tabs {
+    border: 2px solid var(--accent);
+    border-bottom: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    list-style-type: none;
+}
+
+.tab, .tab-selected {
+    padding: 5px;
+    text-align: center;
+    width: 33.33%;
+    margin: 0;
+    border-bottom: 2px solid var(--accent);
+}
+
+.tab:hover {
+    color: var(--highlight);
+    cursor: pointer;
+    border-bottom-color: var(--highlight);
+}
+
+.tab-selected {
+    background-color: var(--theme);
+    color: white;
+}
+
+.graph {
+    margin: 25px 5px 0 5px;
+    text-align: center;
 }
