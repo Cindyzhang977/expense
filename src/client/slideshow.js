@@ -45,8 +45,11 @@ class SlideShow extends React.Component {
   }
 
   prevSlide() {
-    if(this.state.currIndex === 0)
-      return;
+    if(this.state.currIndex === 0) {
+      return this.setState({
+        currIndex: this.state.imgs.length - 1,
+      })
+    }
 
     this.setState(prevState => ({
       currIndex: prevState.currIndex - 1,
