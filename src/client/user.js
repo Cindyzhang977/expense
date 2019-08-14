@@ -10,8 +10,30 @@ class UserRouting extends React.Component {
   constructor(props) {
     super(props);
     this.toggleMenu.bind(this);
+    this.manageResize.bind(this);
+    this.manageMobileLoad.bind(this);
     this.state = {
       toHome: false,
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', () => {
+      this.manageResize();
+    })
+  }
+
+  manageResize() {
+    if (window.matchMedia("screen and (min-width: 600px)").matches) {
+      document.getElementById("menu").style.display = "flex";
+    } else {
+      document.getElementById("menu").style.display = "none";
+    }
+  }
+
+  manageMobileLoad() {
+    if (!window.matchMedia("screen and (min-width: 600px)").matches) {
+      document.getElementById("menu").style.display = "none";
     }
   }
 
@@ -46,9 +68,9 @@ class UserRouting extends React.Component {
                   </div>
               </div>
               <ul id="menu">
-                  <li><div className="nav-link"><Link to="/dashboard">Dashboard</Link></div></li>
-                  <li><div className="nav-link"><Link to="/expense-history">Expense History</Link></div></li>
-                  <li><div className="nav-link"><Link to="/manage-profile">Manage Profile</Link></div></li>
+                  <li><div className="nav-link" onClick={this.manageMobileLoad}><Link to="/dashboard">Dashboard</Link></div></li>
+                  <li><div className="nav-link" onClick={this.manageMobileLoad}><Link to="/expense-history">Expense History</Link></div></li>
+                  <li><div className="nav-link" onClick={this.manageMobileLoad}><Link to="/manage-profile">Manage Profile</Link></div></li>
                   <li><div className="nav-link" onClick={this.toHomePage.bind(this)}>Log Out</div></li>
               </ul>
           </div>

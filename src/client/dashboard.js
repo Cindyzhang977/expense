@@ -1,7 +1,7 @@
 import React from 'react';
 import "./views/user.css";
 import SpendingLimit from "./spending-limit.js";
-import ExpenseTracker from "./expense-tracker.js";
+import ExpenseTracker from "./expense-tracker.js"
 
 class Dashboard extends React.Component {
   constructor(props) {
