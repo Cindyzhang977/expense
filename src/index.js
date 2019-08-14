@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Route, Link, BrowserRouter as Router} from 'react-router-dom';
-import './index.css';
-import logo from "./imgs/logo.png";
-import Login from "./login.js";
-import Signup from "./signup.js";
-import UserRouting from "./user.js";
+import './client/views/index.css';
+import logo from "./client/imgs/logo.png";
+import Login from "./client/login.js";
+import Signup from "./client/signup.js";
+import UserRouting from "./client/user.js";
 
 class HomePage extends React.Component {
   constructor(props) {

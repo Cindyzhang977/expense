@@ -1,5 +1,5 @@
 import React from 'react';
-import "./profile.css";
+import "./views/profile.css";
 import PopUp from "./popup.js";
 
 class Profile extends React.Component {

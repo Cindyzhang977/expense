@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Link, BrowserRouter as Router, Redirect} from 'react-router-dom';
 import logo from "./imgs/logo.png";
-import "./user.css";
+import "./views/user.css";
 import Dashboard from "./dashboard.js";
 import Profile from "./profile.js";
 import ExpenseHistory from "./expense-history.js";

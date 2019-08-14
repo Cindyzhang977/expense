@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import './index.css';
+import './views/index.css';
 import SlideShow from "./slideshow.js";
 
 class Signup extends React.Component {

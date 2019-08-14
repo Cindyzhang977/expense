@@ -1,5 +1,5 @@
 import React from 'react';
-import "./expense-history.css";
+import "./views/expense-history.css";
 
 class ExpenseHistory extends React.Component {
   constructor(props) {

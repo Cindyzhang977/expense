@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './views/index.css';
 import img1 from "./imgs/1.png";
 import img2 from "./imgs/2.png";
 import img3 from "./imgs/3.png";
@@ -17,7 +17,7 @@ class SlideShow extends React.Component {
   }
 
   componentDidMount() {
-    const waitTime = 5000;
+    const waitTime = 4000;
     window.addEventListener("load", () => {
       this.showSlide(this.state.currIndex);
       this.timer = setInterval(this.nextSlide, waitTime);
