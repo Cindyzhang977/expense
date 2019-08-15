@@ -45,9 +45,9 @@ class LimitSetter extends React.Component {
 
     var input = parseFloat(data.get("limit-value"));
     if (isNaN(parseFloat(input))) {
-      document.getElementById("invalid-limit").style.display = "block";
+      document.getElementById("invalid-limit"+this.props.type).style.display = "block";
     } else {
-      document.getElementById("invalid-limit").style.display = "none";
+      document.getElementById("invalid-limit"+this.props.type).style.display = "none";
       this.props.setSpendingLimit(data.get("limit-value"));
       if (this.props.isReset) {
         this.props.toggleReset();
@@ -64,7 +64,7 @@ class LimitSetter extends React.Component {
                 <input type="submit" value={"Reset " + this.props.type} className="button limit-submit" />
                 <input type='submit' className="button limit-submit" onClick={this.props.toggleReset} id="cancel" value="Cancel"/>
             </form>
-            <p style={{display: "none"}} id="invalid-limit" className="invalid-input">* Invalid input *</p>
+            <p style={{display: "none"}} id={"invalid-limit" + this.props.type} className="invalid-input">* Invalid input *</p>
         </div>
       );
     }
@@ -74,7 +74,7 @@ class LimitSetter extends React.Component {
               <input type="text" name="limit-value" className="limit-input" />
               <input type="submit" value={"Set " + this.props.type} className="button limit-submit" />
           </form>
-          <p style={{display: "none"}} id="invalid-limit" className="invalid-input">* Invalid input *</p>
+          <p style={{display: "none"}} id={"invalid-limit" + this.props.type} className="invalid-input">* Invalid input *</p>
       </div>
     );
   }
