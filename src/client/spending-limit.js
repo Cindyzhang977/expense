@@ -60,7 +60,7 @@ class LimitSetter extends React.Component {
 
     if (this.props.isReset) {
       return (
-        <div className="spending-limit content-item content">
+        <div className="content-item content">
             <form className="set-limit-form" onSubmit={this.handleSubmit.bind(this)} autoComplete="off">
                 <input type="text" name="limit-value" className="limit-input" />
                 <input type="submit" value={"Reset " + this.props.type} className="button limit-submit" />
@@ -71,7 +71,7 @@ class LimitSetter extends React.Component {
       );
     }
     return (
-      <div className="spending-limit content-item content">
+      <div className="content-item content">
           <form className="set-limit-form" onSubmit={this.handleSubmit.bind(this)} autoComplete="off">
               <input type="text" name="limit-value" className="limit-input" />
               <input type="submit" value={"Set " + this.props.type} className="button limit-submit" />
@@ -91,8 +91,21 @@ class ProgressBar extends React.Component {
   }
 
   componentDidUpdate() {
-    if (this.props.amount / this.props.spendingLimit * 100 >= 100) {
-      document.getElementById("percentage").style.color = "red";
+    var percentage;
+    if (this.props.type === "Limit") {
+      percentage = document.getElementById("percentageLimit");
+      if (this.props.amount / this.props.spendingLimit * 100 >= 100) {
+        percentage.style.color = "red";
+      } else {
+        percentage.style.color = "inherit";
+      }
+    } else {
+      percentage = document.getElementById("percentageGoal");
+      if (this.props.amount / this.props.spendingLimit * 100 >= 100) {
+        percentage.style.color = "green";
+      } else {
+        percentage.style.color = "inherit";
+      }
     }
   }
 
@@ -113,15 +126,15 @@ class ProgressBar extends React.Component {
 
     return(
       <div>
-        <div className="spending-limit content-item">{button}</div>
+        <div className="content-item">{button}</div>
         <div className="progress content content-item">
             <div className="progress-tracker">
                 <div className="progress-bar">
                     <div className="bar"><div className="filler" style={{width: this.props.amount / this.props.spendingLimit * 100 + '%'}}></div></div>
                 </div>
-                <p>${this.props.spendingLimit}</p>
+                <p className="amount">${this.props.spendingLimit}</p>
             </div>
-            <p id="percentage">{(this.props.amount / this.props.spendingLimit * 100).toFixed(2)}%</p>
+            <p id={"percentage" + this.props.type}>{(this.props.amount / this.props.spendingLimit * 100).toFixed(2)}%</p>
         </div>
       </div>
     );
