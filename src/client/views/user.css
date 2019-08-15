@@ -152,7 +152,7 @@ a {
   border-radius: 10px;
   background-color: var(--light-theme);
   overflow: auto;
-  font-family: georgia; /*CHANGE*/
+  font-family: georgia;
 }
 
 .progress > .button {

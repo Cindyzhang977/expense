@@ -1,12 +1,10 @@
 ﻿:root {
     --theme: #5dba7f;
-    /* --darker-theme: #57ad76; */
     --highlight: #e6a08b;
     --light-theme: #f2f5f4;
     --accent: #3D7871;
     --off-black: #4a4a4a;
     --red: #f03737;
-    /*--grey: #dee3e1;*/
 }
 
 * {
@@ -251,20 +249,17 @@ input[type=submit] {
     .slider {
       position: relative;
       margin: 20px;
-      /* border: 2px solid blue; */
     }
 
     .slide {
       padding: 10px;
       width: 825px;
-      /* border: solid 2px red; */
     }
 
     .slider-wrapper {
       position: relative;
       padding-left: 20px;
       width: 500px;
-      /* border: solid 2px green; */
     }
 
     .nextArrow {

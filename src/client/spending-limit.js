@@ -56,8 +56,6 @@ class LimitSetter extends React.Component {
   }
 
   render() {
-    console.log(this.props.type);
-
     if (this.props.isReset) {
       return (
         <div className="content-item content">
