@@ -99,6 +99,7 @@ input[type=submit] {
     padding-right: 10px;
     padding-left: 10px;
     border-bottom: solid 2px #dee3e1;
+    margin-bottom: 50px;
 }
 
 .heading {
@@ -222,6 +223,10 @@ input[type=submit] {
         max-width: 40%;
     }
 
+    .navbar {
+      margin-bottom: 0;
+    }
+
     .name {
         display: flex;
         justify-content: space-between;
@@ -324,5 +329,9 @@ input[type=submit] {
 
     #last-name {
         margin-left: 10px;
+    }
+
+    #login-filler {
+      height: 70px;
     }
 }
