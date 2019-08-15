@@ -15,8 +15,12 @@ a {
 .nav-link {
   padding-bottom: 3px;
   padding-top: 3px;
-  margin: 2px;
+  margin: 2px 3px 2px 3px;
   text-align: right;
+}
+
+#menu > li > .nav-link {
+  font-family: 'Poppins', sans-serif;
 }
 
 .nav-link:hover {
