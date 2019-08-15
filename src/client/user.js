@@ -24,6 +24,9 @@ class UserRouting extends React.Component {
   }
 
   manageResize() {
+    if (!document.getElementById("menu")) {
+      return;
+    }
     if (window.matchMedia("screen and (min-width: 600px)").matches) {
       document.getElementById("menu").style.display = "flex";
     } else {
