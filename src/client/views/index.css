@@ -271,10 +271,12 @@ input[type=submit] {
       color: #fff;
       -webkit-transition: right 0.7s;
       transition: right 0.7s;
+      opacity: 0.7;
     }
 
     .nextArrow:hover {
       right: -24%;
+      opacity: 1;
     }
 
     .backArrow {
@@ -285,10 +287,12 @@ input[type=submit] {
       color: #fff;
       -webkit-transition: left 0.7s;
       transition: left 0.7s;
+      opacity: 0.7;
     }
 
     .backArrow:hover {
       left: 1%;
+      opacity: 1;
     }
 
     i {

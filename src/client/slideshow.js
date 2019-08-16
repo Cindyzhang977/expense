@@ -17,7 +17,7 @@ class SlideShow extends React.Component {
   }
 
   componentDidMount() {
-    const waitTime = 4000;
+    const waitTime = 5000;
     window.addEventListener("load", () => {
       this.showSlide(this.state.currIndex);
       this.timer = setInterval(this.nextSlide, waitTime);
